@@ -1,7 +1,22 @@
-# Tauri + React + Typescript
+<p align="left"><strong><samp>「</samp></strong></p>
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+<p align="center">
+    <b>
+        AudioPlay
+        <br>
+        Anime Theme Audio Player
+        <br>
+        <br>
+        images of the application:
+        <br>
+        <br>
+        <img src="public/present.png" alt="imagen">
+        <br>
+        <br>
+        ~ Corro-Kun ~
+    </b>
+</p>
 
-## Recommended IDE Setup
+<p align="right"><strong><samp>」</samp></strong></p>
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+<br>
