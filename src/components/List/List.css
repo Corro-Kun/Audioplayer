@@ -1,0 +1,45 @@
+.List-Div-Render{
+    display: flex;
+    height: 80vh;
+    align-items: center;
+    justify-content: center;
+}
+.List-Div{
+    width: 50%;
+    height: 85%;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 0 0 20px #000;
+    overflow: hidden;
+    animation: Init-Music 0.5s ease-in-out;
+}
+.List-Title{
+    padding: 2px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+.List-Title h2{
+    text-shadow: 0 0 10px #000;
+}
+.List-Music{
+    display: flex;
+    width: 100%;
+    height: 88%;
+    background: transparent;
+    overflow: auto;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+}
+
+@keyframes Init-Music{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

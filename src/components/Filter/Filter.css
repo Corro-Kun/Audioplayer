@@ -1,0 +1,25 @@
+.Filter-Div-Render{
+    display: flex;
+    padding: 10px 10px 10px 10px;
+    width: 100%;
+    justify-content: center;
+}
+.Filter-Div-Render div{
+    width: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    border: 2px solid black;
+    box-shadow: 0 0 20px #000;
+}
+.Filter-Div-Render div input{
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    padding: 10px 10px 10px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    text-shadow: 0 0 1px #000;
+}

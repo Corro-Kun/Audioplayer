@@ -1,9 +1,9 @@
-import Main from "./layout/Main";
 import "./App.css";
+import Router from "./routers/router";
 
 function App() {
   return (
-    <Main />
+    <Router />
   );
 }
 
