@@ -13,9 +13,18 @@
   "tauri": {
     "allowlist": {
       "all": false,
+      "path": {
+        "all": true
+      },
       "shell": {
         "all": false,
         "open": true
+      },
+      "fs": {
+        "all": false,
+        "readDir": true,
+        "readFile": true,
+        "scope": ["$AUDIO"]
       }
     },
     "bundle": {

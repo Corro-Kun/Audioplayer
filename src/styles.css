@@ -12,4 +12,9 @@
 
 body{
     color: #fff;
+    background-color: black;
+    background-image: url('./assets/Backgrund.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }

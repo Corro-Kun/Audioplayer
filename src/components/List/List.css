@@ -14,6 +14,11 @@
     box-shadow: 0 0 20px #000;
     overflow: hidden;
     animation: Init-Music 0.5s ease-in-out;
+    transition: .5s ease-in-out;
+}
+.List-Div:hover{
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px #fff;
 }
 .List-Title{
     padding: 2px;
@@ -42,4 +47,19 @@
     100%{
         transform: scale(1);
     }
+}
+.List-Music-Item{
+    padding: 5px 10px;
+    margin: 0 10px;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+.List-Music-Item:hover{
+    background: #fff;
+    color: #000;
+    transform: scale(1.03);
+}
+.List-Music-Item p{
+    text-shadow: 0 0 10px #000;
 }

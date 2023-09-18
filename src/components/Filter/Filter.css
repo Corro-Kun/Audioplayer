@@ -1,6 +1,6 @@
 .Filter-Div-Render{
     display: flex;
-    padding: 10px 10px 10px 10px;
+    padding: 8px 8px 8px 8px;
     width: 100%;
     justify-content: center;
 }
@@ -10,6 +10,21 @@
     backdrop-filter: blur(20px);
     border: 2px solid black;
     box-shadow: 0 0 20px #000;
+    transition: .5s ease-in-out;
+}
+.Filter-Div-Render div:hover{
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px #fff;
+}
+.Filter-Div-Render div input::placeholder{
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: 0 0 1px #000;
+}
+.Filter-Div-Render div input:focus{
+    border: none;
+    outline: none;
 }
 .Filter-Div-Render div input{
     color: #fff;
