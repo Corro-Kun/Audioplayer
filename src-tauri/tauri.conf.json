@@ -12,7 +12,11 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false,
+      "all": false,"protocol": {
+        "all": true,
+        "asset": true,
+        "assetScope": ["$AUDIO/*"]
+      },
       "path": {
         "all": true
       },
@@ -40,7 +44,7 @@
       ]
     },
     "security": {
-      "csp": null
+      "csp": "default-src 'self'; img-src 'self' asset: https://asset.localhost"
     },
     "windows": [
       {

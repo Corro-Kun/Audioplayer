@@ -3,7 +3,7 @@ import { useMusic } from "../../context/Music";
 import "./List.css"
 
 function List(){
-    const {getMusic, Music} = useMusic();
+    const {getMusic, Music, PlayMusic} = useMusic();
     useEffect(()=>{
         getMusic()
     },[]);
@@ -16,13 +16,16 @@ function List(){
                 <div className="List-Music">
                     {
                         Music.map((item: any, index: number)=>(
-                            <div className="List-Music-Item" key={index} >
+                            <div className="List-Music-Item" key={index} onClick={()=> PlayMusic(index)}>
                                 <p>{item.name}</p>
                             </div>
                         ))
                     }
+                <audio style={{display: "none"}} id="audio" controls>
+                    <source id="source" src="" type="audio/mpeg" />
+                </audio>
                 </div>
-            </div>
+          </div>
         </div>
     );
 }

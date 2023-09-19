@@ -9,11 +9,11 @@ function Home(){
     return(
         <BodyWallpaper>
             <BodyRender>
-                <Filter />
                 <MusicProvider>
+                    <Filter />
                     <List />
+                    <Control />
                 </MusicProvider>
-                <Control />
             </BodyRender>
         </BodyWallpaper>
     );
