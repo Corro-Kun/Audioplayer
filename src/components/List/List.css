@@ -63,3 +63,8 @@
 .List-Music-Item p{
     text-shadow: 0 0 10px #000;
 }
+#select{
+    background: #fff;
+    color: #000;
+    transform: scale(1.03);
+}

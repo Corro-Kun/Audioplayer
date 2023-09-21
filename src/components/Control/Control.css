@@ -12,7 +12,7 @@
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 0 0 20px #000;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     transition: .5s ease-in-out;
 }
@@ -20,7 +20,7 @@
     border: 2px solid #fff;
     box-shadow: 0 0 20px #fff;
 }
-.Control-Div div{
+.Control-Button{
     margin: 5px;
     width: 40px;
     height: 40px;
@@ -29,7 +29,7 @@
     align-items: center;
     justify-content: center;
 }
-.Control-Div div img{
+.Control-Button img{
     cursor: pointer;
     height: 25px;
     transform: translateX(2.5px);
@@ -42,5 +42,36 @@
     transition: .5s;
 }
 #Play:hover{
+    box-shadow: 0 0 10px #fff;
+}
+.Control-Button-Main{
+    display: flex;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+}
+.duration{
+    display: flex;
+    padding-left: 10px;
+    width: 35%;
+}
+.volumn{
+    display: flex;
+    width: 35%;
+    justify-content: center;
+    align-items: center;
+}
+.volumn input{
+    width: 80%;
+    height: 5px;
+    cursor: pointer;
+    background: #000;
+    border-radius: 5px;
+    outline: none;
+    transition: .5s;
+    accent-color: #fff;
+    box-shadow: 0 0 10px #000;
+}
+.volumn input:hover{
     box-shadow: 0 0 10px #fff;
 }

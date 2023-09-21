@@ -1,4 +1,4 @@
-import {useContext, createContext, useState} from "react";
+import {useContext, createContext, useState, useRef} from "react";
 import {readDir} from "@tauri-apps/api/fs"
 import {audioDir, join} from "@tauri-apps/api/path";
 import {convertFileSrc} from "@tauri-apps/api/tauri"
@@ -10,9 +10,10 @@ export const useMusic = ()=>{
 }
 
 export const MusicProvider = ({children} : {children: React.ReactNode})=>{
-    const [Music, setMusic] =  useState([{name: "", path: ""}]);
+    const [Music, setMusic] =  useState([{name: "", path: "", statue: false}]);
     const [Play, setPlay] = useState(false);
     const [Index, setIndex] = useState(0);
+    const audioRef = useRef(null);
     async function getMusic(){
         const router = await audioDir();
         let data = await readDir(router);
@@ -23,10 +24,12 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
             file.name = file.name?.replace(".mp3", "");
             let a = i + 1;
             file.name = a + ". " + file.name;
+            file.statue = false;
             return file;
         });
         setMusic(data);
     }
+
     async function PlayMusic(i: number){
         try {
             const url = convertFileSrc(Music[i].path);
@@ -37,6 +40,11 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
             await audio.play();
             setPlay(true);
             setIndex(i);
+            let cache = Music;
+            cache.map((item)=>(item.statue = false));
+            cache[i].statue = true;
+            setMusic(cache);
+            document.title = Music[i].name;
         } catch (error) {
             console.log(error);
         }
@@ -81,7 +89,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
     }
 
     return(
-        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play}}>
+        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, audioRef}}>
             {children}
         </MusicContext.Provider>
     );

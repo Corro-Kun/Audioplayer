@@ -49,7 +49,7 @@
     "windows": [
       {
         "fullscreen": false,
-        "resizable": false,
+        "resizable": true,
         "title": "Audioplayer",
         "width": 1200,
         "height": 700
