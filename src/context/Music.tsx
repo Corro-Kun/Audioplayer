@@ -1,6 +1,5 @@
-import {useContext, createContext, useState, useRef} from "react";
-import {readDir} from "@tauri-apps/api/fs"
-import {audioDir, join} from "@tauri-apps/api/path";
+import {useContext, createContext, useState} from "react";
+import {invoke} from "@tauri-apps/api/tauri"
 import {convertFileSrc} from "@tauri-apps/api/tauri"
 
 const MusicContext = createContext({} as any);
@@ -9,14 +8,19 @@ export const useMusic = ()=>{
     return useContext(MusicContext);
 }
 
+interface list_music{
+    name: string,
+    path: string,
+    statue: boolean
+}
+
 export const MusicProvider = ({children} : {children: React.ReactNode})=>{
     const [Music, setMusic] =  useState([{name: "", path: "", statue: false}]);
     const [Play, setPlay] = useState(false);
     const [Index, setIndex] = useState(0);
-    const audioRef = useRef(null);
+
     async function getMusic(){
-        const router = await audioDir();
-        let data = await readDir(router);
+        let data: list_music[] = await invoke("get_path_music");
         data = data.filter((file)=>{
             return file.name?.toLowerCase().endsWith(".mp3");
         })
@@ -88,8 +92,38 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         }
     }
 
+    const [duration, setDuration] = useState("");
+ 
+    const [volume, setVolume] = useState(1);
+ 
+    const updateTime = () => {
+        const audio = document.getElementById("audio") as HTMLAudioElement;
+ 
+        const currentTimeInSeconds = audio.currentTime;
+
+        const duration = audio.duration;
+
+        const minutesM = Math.floor(duration / 60);
+        const secondsM = Math.floor(duration % 60);
+
+        const Max = `${minutesM}:${secondsM < 10 ? '0' : ''}${secondsM}`;
+
+        const minutes = Math.floor(currentTimeInSeconds / 60);
+        const seconds = Math.floor(currentTimeInSeconds % 60);
+
+        const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+        setDuration(formattedTime + " | " + Max);
+    };
+
+    function changeVolume({target:{value}}: {target: {value: number}}){
+        const audio = document.getElementById("audio") as HTMLAudioElement;
+        setVolume(value);
+        audio.volume = volume;
+    }
+
     return(
-        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, audioRef}}>
+        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume}}>
             {children}
         </MusicContext.Provider>
     );

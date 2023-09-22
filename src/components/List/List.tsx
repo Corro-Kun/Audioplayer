@@ -3,7 +3,7 @@ import { useMusic } from "../../context/Music";
 import "./List.css"
 
 function List(){
-    const {getMusic, Music, PlayMusic, audioRef} = useMusic();
+    const {getMusic, Music, PlayMusic} = useMusic();
     useEffect(()=>{
         getMusic()
     },[]);
@@ -21,7 +21,7 @@ function List(){
                             </div>
                         ))
                     }
-                <audio ref={audioRef} style={{display: "none"}} id="audio" controls>
+                <audio style={{display: "none"}} id="audio" controls>
                     <source id="source" src="" type="audio/mpeg" />
                 </audio>
                 </div>

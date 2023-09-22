@@ -1,15 +1,24 @@
-// Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
+fn greet(name: &str) -> String{
+    format!("Hello, {}!", name)
+}
+
+use tauri::api::dir::DiskEntry;
+use tauri::api::path;
+use tauri::api::dir;
+
+#[tauri::command]
+fn get_path_music() -> Vec<DiskEntry>{
+    let path = path::audio_dir().unwrap();
+    let list_music = dir::read_dir(path,false).unwrap();
+    list_music
 }
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![greet, get_path_music])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
