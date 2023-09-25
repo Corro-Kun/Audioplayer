@@ -22,7 +22,7 @@
         <img src="public/promicion3.png" alt="imagen">
         <br>
         <br>
-        <img src="public/promicion4.png" alt="imagen">
+        <img src="public/promocion4.png" alt="imagen">
         <br>
         <br>
         ~ Corro-Kun ~
