@@ -16,9 +16,16 @@ fn get_path_music() -> Vec<DiskEntry>{
     list_music
 }
 
+#[tauri::command]
+fn get_path_video() -> Vec<DiskEntry>{
+    let path = path::video_dir().unwrap();
+    let list_video = dir::read_dir(path,true).unwrap();
+    list_video
+}
+
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet, get_path_music])
+        .invoke_handler(tauri::generate_handler![greet, get_path_music, get_path_video])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

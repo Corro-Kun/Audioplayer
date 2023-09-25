@@ -4,7 +4,7 @@
     "beforeBuildCommand": "npm run build",
     "devPath": "http://localhost:1420",
     "distDir": "../dist",
-    "withGlobalTauri": false
+    "withGlobalTauri": true
   },
   "package": {
     "productName": "Audioplayer",
@@ -13,9 +13,9 @@
   "tauri": {
     "allowlist": {
       "all": false,"protocol": {
-        "all": true,
+        "all": false,
         "asset": true,
-        "assetScope": ["$AUDIO/*"]
+        "assetScope": ["$AUDIO","$AUDIO/*", "$VIDEO/**/**", "$VIDEO"]
       },
       "path": {
         "all": true
@@ -28,7 +28,7 @@
         "all": false,
         "readDir": true,
         "readFile": true,
-        "scope": ["$AUDIO"]
+        "scope": ["$AUDIO", "$VIDEO"]
       }
     },
     "bundle": {
@@ -41,10 +41,24 @@
         "icons/128x128@2x.png",
         "icons/icon.icns",
         "icons/icon.ico"
-      ]
+      ],
+      "windows": {
+        "allowDowngrades": true,
+        "certificateThumbprint": null,
+        "digestAlgorithm": null,
+        "nsis": null,
+        "timestampUrl": null,
+        "tsp": false,
+        "webviewFixedRuntimePath": null,
+        "webviewInstallMode": {
+          "silent": true,
+          "type": "downloadBootstrapper"
+        },
+        "wix": null
+      }
     },
     "security": {
-      "csp": "default-src 'self'; img-src 'self' asset: https://asset.localhost"
+      "csp": "default-src 'self'; img-src 'self' asset: https://asset.localhost http://localhost:1420; script-src 'self' 'unsafe-eval' 'unsafe-inline'; font-src 'self' data:; connect-src 'self' ws://localhost:1420 http://localhost:1420; style-src 'self' 'unsafe-inline'; frame-src 'self' data:; worker-src 'self' blob:; manifest-src 'self' data:; child-src 'self' blob:; object-src 'self' blob:; frame-ancestors 'self'; base-uri 'self'; form-action 'self';"
     },
     "windows": [
       {

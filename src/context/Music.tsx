@@ -1,6 +1,7 @@
 import {useContext, createContext, useState} from "react";
 import {invoke} from "@tauri-apps/api/tauri"
 import {convertFileSrc} from "@tauri-apps/api/tauri"
+import {toast} from "sonner";
 
 const MusicContext = createContext({} as any);
 
@@ -12,6 +13,12 @@ interface list_music{
     name: string,
     path: string,
     statue: boolean
+}
+
+interface list_video{
+    name: string,
+    path: string,
+    children: list_video[]
 }
 
 export const MusicProvider = ({children} : {children: React.ReactNode})=>{
@@ -34,6 +41,35 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         setMusic(data);
     }
 
+    const [Video, setVideo] = useState([{
+        name: "",
+        path: "",
+    }]);
+
+    async function getVideo(){
+        let data: list_video[] = await invoke("get_path_video");
+        data = data.filter((file: any)=>{
+            return file.name?.toLowerCase().includes("fondos");
+        })
+        data = data[0].children;
+        setVideo(data);
+        console.log(data);
+    }
+
+    async function changerVideo(i: number){
+        try {
+            const video = document.getElementById("video") as HTMLVideoElement;
+            const source = document.getElementById("sourceV") as HTMLSourceElement;
+            const url = convertFileSrc(Video[i].path);
+            source.src = url;
+            video.load();
+            await video.play();
+        } catch (error) {
+            console.log(error);
+            toast.error("No se puede reproducir el video");
+        }
+    }
+
     async function PlayMusic(i: number){
         try {
             const url = convertFileSrc(Music[i].path);
@@ -51,6 +87,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
             document.title = Music[i].name;
         } catch (error) {
             console.log(error);
+            toast.error("No se puede reproducir la música");
         }
     }
 
@@ -123,7 +160,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
     }
 
     return(
-        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume}}>
+        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, getVideo, Video, changerVideo}}>
             {children}
         </MusicContext.Provider>
     );
