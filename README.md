@@ -13,6 +13,18 @@
         <img src="public/present.png" alt="imagen">
         <br>
         <br>
+        <img src="public/promicion1.png" alt="imagen">
+        <br>
+        <br>
+        <img src="public/promicion2.png" alt="imagen">
+        <br>
+        <br>
+        <img src="public/promicion3.png" alt="imagen">
+        <br>
+        <br>
+        <img src="public/promicion4.png" alt="imagen">
+        <br>
+        <br>
         ~ Corro-Kun ~
     </b>
 </p>
