@@ -1,0 +1,26 @@
+.List-Div-Config{
+    width: 80%;
+    height: 100%;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 0 0 20px #000;
+    transition: .5s;
+}
+.List-Div-Config:hover{
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px #fff;
+}
+.Checkbox-div{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+.Checkbox-div input[type="checkbox"]{
+    cursor: pointer;
+    margin-right: 10px;
+    accent-color: #fff;
+    transform: translateY(2px);
+    outline: none;
+}

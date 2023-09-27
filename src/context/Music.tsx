@@ -2,23 +2,12 @@ import {useContext, createContext, useState} from "react";
 import {invoke} from "@tauri-apps/api/tauri"
 import {convertFileSrc} from "@tauri-apps/api/tauri"
 import {toast} from "sonner";
+import { list_music } from "../interface/main";
 
 const MusicContext = createContext({} as any);
 
 export const useMusic = ()=>{
     return useContext(MusicContext);
-}
-
-interface list_music{
-    name: string,
-    path: string,
-    statue: boolean
-}
-
-interface list_video{
-    name: string,
-    path: string,
-    children: list_video[]
 }
 
 export const MusicProvider = ({children} : {children: React.ReactNode})=>{
@@ -41,35 +30,6 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         setMusic(data);
     }
 
-    const [Video, setVideo] = useState([{
-        name: "",
-        path: "",
-    }]);
-
-    async function getVideo(){
-        let data: list_video[] = await invoke("get_path_video");
-        data = data.filter((file: any)=>{
-            return file.name?.toLowerCase().includes("fondos");
-        })
-        data = data[0].children;
-        setVideo(data);
-        console.log(data);
-    }
-
-    async function changerVideo(i: number){
-        try {
-            const video = document.getElementById("video") as HTMLVideoElement;
-            const source = document.getElementById("sourceV") as HTMLSourceElement;
-            const url = convertFileSrc(Video[i].path);
-            source.src = url;
-            video.load();
-            await video.play();
-        } catch (error) {
-            console.log(error);
-            toast.error("No se puede reproducir el video");
-        }
-    }
-
     async function PlayMusic(i: number){
         try {
             const url = convertFileSrc(Music[i].path);
@@ -87,7 +47,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
             document.title = Music[i].name;
         } catch (error) {
             console.log(error);
-            toast.error("No se puede reproducir la música");
+            toast.error("Error" + error);
         }
     }
 
@@ -119,6 +79,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
     }
 
     function FilterMusic({target:{value}}: {target: {value: string}}){
+        setListMusic(false);
         if(value === ""){
             getMusic();
         }else{
@@ -135,7 +96,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
  
     const updateTime = () => {
         const audio = document.getElementById("audio") as HTMLAudioElement;
- 
+
         const currentTimeInSeconds = audio.currentTime;
 
         const duration = audio.duration;
@@ -151,6 +112,10 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
         setDuration(formattedTime + " | " + Max);
+
+        if(currentTimeInSeconds === duration){
+            NextMusic();
+        }
     };
 
     function changeVolume({target:{value}}: {target: {value: number}}){
@@ -159,8 +124,17 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         audio.volume = volume;
     }
 
+    // state para el estado de las listas
+
+    const [listMusic, setListMusic] = useState(false);
+
+    function ChangerStateListMusic(){
+        setListMusic(!listMusic);
+    }
+
+
     return(
-        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, getVideo, Video, changerVideo}}>
+        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, listMusic, ChangerStateListMusic}}>
             {children}
         </MusicContext.Provider>
     );

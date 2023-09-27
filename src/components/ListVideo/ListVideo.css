@@ -1,0 +1,31 @@
+.List-Div-video-Render{
+    display: flex;
+    height: 85%;
+    width: 25%;
+    align-items: center;
+    justify-content: center;
+}
+
+.List-Div-video{
+    width: 90%;
+    height: 95%;
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 0 0 20px #000;
+    transition: .5s;
+    animation: Init-Video 0.5s ease-in-out;
+}
+.List-Div-video:hover{
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px #fff;
+}
+
+@keyframes Init-Video{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
