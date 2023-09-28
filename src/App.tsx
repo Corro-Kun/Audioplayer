@@ -6,7 +6,13 @@ function App() {
   return (
     <>
       <Router />
-      <Toaster />
+      <Toaster toastOptions={{
+        style: {
+          background: "transparent",
+          backdropFilter: "blur(15px)",
+          color: "white",
+        }
+      }} position="top-right" />
     </>
   );
 }

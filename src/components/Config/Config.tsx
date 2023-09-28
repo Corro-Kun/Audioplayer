@@ -1,14 +1,15 @@
 import { useMusic } from "../../context/Music";
 import { useVideo } from "../../context/Video";
+import {GoPencil} from "react-icons/go";
 import "./Config.css"
 
 function Config(){
     const {ChangerStateListMusic, listMusic} = useMusic();
-    const {ChangerStateListFondos, listFondos}:any = useVideo();
+    const {ChangerStateListFondos, listFondos, configState, ChangerConfigState}:any = useVideo();
     return(
         <div className="List-Div-Config-Render">
-            <div className="List-Div-Config" >
-                <div className="List-Title">
+            <div className="List-Div-Config" style={configState? {display: "none"} : {}} >
+                <div className="List-Title" onClick={ChangerConfigState}  >
                     <h2>Configuraciones</h2>
                 </div>
                 <div className="Checkbox-div" >
@@ -21,6 +22,9 @@ function Config(){
                 </div>
                 <div>
                 </div>
+            </div>
+            <div className="List-Div-Config-Button" style={configState? {} : {display: "none"}} >
+                <h2 onClick={ChangerConfigState} ><GoPencil/></h2>
             </div>
         </div>
     );

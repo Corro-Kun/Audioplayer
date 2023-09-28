@@ -27,12 +27,45 @@ export function VideoProvider({children}: any) {
 
     async function changerVideo(i: number){
         try {
+            // const VideoContainer = document.getElementsByClassName("BodyWallpaper");
+
+            // const newVideo = document.createElement("video") as HTMLVideoElement;
+            // newVideo.id = "video";
+            // newVideo.className = "video-Background";
+            // newVideo.muted = true;
+            // newVideo.autoplay = true;
+            // newVideo.loop = true;
+
+            // const newSource = document.createElement("source") as HTMLSourceElement;
+            // newSource.id = "sourceV";
+            // newSource.src = convertFileSrc(Video[i]?.path);
+            // newSource.type = "video/mp4";
+
+            // newVideo.appendChild(newSource);
+
+            // const oldVideo = document.getElementById("video") as HTMLVideoElement;
+            // const oldSource = document.getElementById("sourceV") as HTMLSourceElement;
+            // if(oldVideo && oldSource){
+            //     oldVideo.remove();
+            //     oldSource.remove();
+            // }
+
+            // VideoContainer[0].appendChild(newVideo);
+
+            // await newVideo.play();
+
             const video = document.getElementById("video") as HTMLVideoElement;
             const source = document.getElementById("sourceV") as HTMLSourceElement;
-            const url = convertFileSrc(Video[i].path);
+            const url = convertFileSrc(Video[i]?.path);
             source.src = url;
             video.load();
-            await video.play();
+            toast.promise(video.play(), {
+                loading: "Cargando video",
+                success: "Video cargado",
+                error(error) {
+                    return `Error: ${error}`;
+                },
+            })
         } catch (error) {
             console.log(error);
             toast.error("Error: " + error);
@@ -46,8 +79,14 @@ export function VideoProvider({children}: any) {
         setListFondos(!listFondos);
     }
 
+    const [configState, setConfigState] = useState(false);
+
+    function ChangerConfigState(){
+        setConfigState(!configState);
+    }
+
     return(
-        <VideoContext.Provider value={{getVideo, Video, changerVideo, ChangerStateListFondos, listFondos}}>
+        <VideoContext.Provider value={{getVideo, Video, changerVideo, ChangerStateListFondos, listFondos,configState, ChangerConfigState}}>
             {children}
         </VideoContext.Provider>
     );

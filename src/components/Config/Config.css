@@ -1,3 +1,11 @@
+.List-Div-Config-Render{
+    display: flex;
+    width: 25%;
+    height: 60%;
+    justify-content: center;
+    align-items: center;
+}
+
 .List-Div-Config{
     width: 80%;
     height: 100%;
@@ -6,6 +14,7 @@
     border: 2px solid black;
     box-shadow: 0 0 20px #000;
     transition: .5s;
+    animation: Init-Config 0.5s ease-in-out;
 }
 .List-Div-Config:hover{
     border: 2px solid #fff;
@@ -23,4 +32,19 @@
     accent-color: #fff;
     transform: translateY(2px);
     outline: none;
+}
+.List-Div-Config-Button{
+    width: 80%;
+    height: 100%;
+}
+.List-Div-Config-Button h2{
+    cursor: pointer;
+}
+@keyframes Init-Config{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
 }

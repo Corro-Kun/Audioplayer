@@ -1,4 +1,5 @@
 import { useVideo } from "../../context/Video";
+import {FaPhotoVideo} from "react-icons/fa"
 import "./ListVideo.css"
 
 function ListVideo(){
@@ -12,7 +13,7 @@ function ListVideo(){
                 {
                     Video.map((item: any, index: number)=>(
                         <div className="List-Music-Item" key={index} onClick={()=>changerVideo(index)} >
-                            <p>{item.name}</p>
+                            <p><span><FaPhotoVideo /></span> {item.name}</p>
                         </div>
                     ))
                 }

@@ -28,26 +28,6 @@
     border: 2px solid #fff;
     box-shadow: 0 0 20px #fff;
 }
-.List-Div-Config-Render{
-    display: flex;
-    width: 25%;
-    height: 60%;
-    justify-content: center;
-    align-items: center;
-}
-.List-Div-Config{
-    width: 80%;
-    height: 100%;
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
-    border: 2px solid black;
-    box-shadow: 0 0 20px #000;
-    transition: .5s;
-}
-.List-Div-Config:hover{
-    border: 2px solid #fff;
-    box-shadow: 0 0 20px #fff;
-}
 .List-Title{
     padding: 2px;
     display: flex;
@@ -97,3 +77,39 @@
     color: #000;
     transform: scale(1.03);
 }
+
+@media screen and (min-width: 1500px){
+    .List-Music-Item{
+        margin: 0 15px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .Control-Div{
+        width: 70%;
+    }
+    .Filter-Div-Render div{
+        width: 70%;
+    }
+    .List-Div-Render{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .List-Div-video-Render{
+        display: none;
+    }
+    .List-Div-video{
+        display: none;
+    }
+    .List-Div-Config-Render{
+        display: none;
+    }
+    .List-Div-Config{
+        display: none;
+    }
+    .List-Div-Render-Main{
+        width: 150%;
+    }
+}
+    

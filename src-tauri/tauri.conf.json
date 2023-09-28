@@ -12,7 +12,8 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false,"protocol": {
+      "all": false,
+      "protocol": {
         "all": false,
         "asset": true,
         "assetScope": ["$AUDIO","$AUDIO/*", "$VIDEO/**/**", "$VIDEO"]
@@ -58,7 +59,7 @@
       }
     },
     "security": {
-      "csp": "default-src 'self'; img-src 'self' asset: https://asset.localhost http://localhost:1420; script-src 'self' 'unsafe-eval' 'unsafe-inline'; font-src 'self' data:; connect-src 'self' ws://localhost:1420 http://localhost:1420; style-src 'self' 'unsafe-inline'; frame-src 'self' data:; worker-src 'self' blob:; manifest-src 'self' data:; child-src 'self' blob:; object-src 'self' blob:; frame-ancestors 'self'; base-uri 'self'; form-action 'self';"
+      "csp": "default-src: 'self'; media-src 'self' stream: https://* asset: https://*  "
     },
     "windows": [
       {

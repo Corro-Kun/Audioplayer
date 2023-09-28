@@ -37,6 +37,15 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
             const source = document.getElementById("source") as HTMLSourceElement;
             source.src = url;
             audio.load();
+
+            const handleEnded = () => {
+                audio.removeEventListener('ended', handleEnded);
+                const nextIndex = (i + 1) % Music.length;
+                PlayMusic(nextIndex);
+            }
+
+            audio.addEventListener('ended', handleEnded);
+
             await audio.play();
             setPlay(true);
             setIndex(i);
@@ -94,12 +103,17 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
  
     const [volume, setVolume] = useState(1);
  
+    const [durtationInput, setDurationInput] = useState(0.0);
+    const [durationInputMax, setDurationInputMax] = useState(0.0);
+
     const updateTime = () => {
         const audio = document.getElementById("audio") as HTMLAudioElement;
 
         const currentTimeInSeconds = audio.currentTime;
 
         const duration = audio.duration;
+        setDurationInput(currentTimeInSeconds);
+        setDurationInputMax(duration);
 
         const minutesM = Math.floor(duration / 60);
         const secondsM = Math.floor(duration % 60);
@@ -112,16 +126,20 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
         setDuration(formattedTime + " | " + Max);
-
-        if(currentTimeInSeconds === duration){
-            NextMusic();
-        }
     };
 
     function changeVolume({target:{value}}: {target: {value: number}}){
         const audio = document.getElementById("audio") as HTMLAudioElement;
         setVolume(value);
         audio.volume = volume;
+    }
+
+    function changeDuration({target:{value}}: {target: {value: number}}){
+        const audio = document.getElementById("audio") as HTMLAudioElement;
+        audio.pause();
+        setDurationInput(value);
+        audio.currentTime = value;
+        audio.play();
     }
 
     // state para el estado de las listas
@@ -134,7 +152,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
 
 
     return(
-        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, listMusic, ChangerStateListMusic}}>
+        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, listMusic, ChangerStateListMusic, durtationInput, durationInputMax, changeDuration}}>
             {children}
         </MusicContext.Provider>
     );
