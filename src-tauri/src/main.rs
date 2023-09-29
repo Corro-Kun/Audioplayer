@@ -59,7 +59,33 @@ fn put_path_video(path: &str) -> TauriResult<String> {
 fn get_video_db() -> String {
     let conn = Connection::open("database.db").unwrap();
 
-    let mut stmt = conn.prepare("SELECT * FROM video;").unwrap();
+    let table = "video";
+
+    let mut value = String::new();
+
+    let table_exists: bool = conn
+        .prepare("SELECT name FROM sqlite_master WHERE type='table' AND name=?")
+        .and_then(|mut stmt| {
+        stmt.query_row(&[table], |row| Ok(value = row.get(0)?))
+        })
+        .is_ok();
+
+    if !table_exists {
+        let _ = conn.execute(
+            "CREATE TABLE video (
+                id INTEGER PRIMARY KEY,
+                path TEXT NOT NULL
+            )",
+            [],
+        );
+        
+        let _ = conn.execute(
+            "INSERT INTO video (path) VALUES (?1)",
+            params!["no"],
+        );
+    };
+
+    let mut stmt = conn.prepare("SELECT * FROM video;").map_err(|err| format!("the error is {}", err.to_string())).unwrap();
 
     let video = stmt.query_map([], |row|{
         Ok(Video{

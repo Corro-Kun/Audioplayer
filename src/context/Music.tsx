@@ -3,6 +3,7 @@ import {invoke} from "@tauri-apps/api/tauri"
 import {convertFileSrc} from "@tauri-apps/api/tauri"
 import {toast} from "sonner";
 import { list_music } from "../interface/main";
+import { OpeDurations } from "../function/MusicOpe";
 
 const MusicContext = createContext({} as any);
 
@@ -115,17 +116,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         setDurationInput(currentTimeInSeconds);
         setDurationInputMax(duration);
 
-        const minutesM = Math.floor(duration / 60);
-        const secondsM = Math.floor(duration % 60);
-
-        const Max = `${minutesM}:${secondsM < 10 ? '0' : ''}${secondsM}`;
-
-        const minutes = Math.floor(currentTimeInSeconds / 60);
-        const seconds = Math.floor(currentTimeInSeconds % 60);
-
-        const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-
-        setDuration(formattedTime + " | " + Max);
+        setDuration(OpeDurations(currentTimeInSeconds) + " | " + OpeDurations(duration));
     };
 
     function changeVolume({target:{value}}: {target: {value: number}}){
