@@ -23,6 +23,13 @@ export function VideoProvider({children}: any) {
         })
         data = data[0].children;
         setVideo(data);
+        let paht: string = await invoke("get_video_db");
+        if(paht !== "no") {
+            const video = document.getElementById("video") as HTMLVideoElement;
+            const source = document.getElementById("sourceV") as HTMLSourceElement;
+            source.src = paht;
+            video.load();
+        }
     }
 
     async function changerVideo(i: number){
@@ -58,6 +65,9 @@ export function VideoProvider({children}: any) {
             const source = document.getElementById("sourceV") as HTMLSourceElement;
             const url = convertFileSrc(Video[i]?.path);
             source.src = url;
+
+            await invoke("put_path_video", {path: url});
+
             video.load();
             toast.promise(video.play(), {
                 loading: "Cargando video",
