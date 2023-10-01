@@ -1,7 +1,7 @@
 import {useContext, createContext, useState} from "react";
 import {invoke} from "@tauri-apps/api/tauri"
 import {convertFileSrc} from "@tauri-apps/api/tauri"
-import {toast} from "sonner";
+//import {toast} from "sonner";
 import { list_music } from "../interface/main";
 import { OpeDurations } from "../function/MusicOpe";
 
@@ -57,7 +57,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
             document.title = Music[i].name;
         } catch (error) {
             console.log(error);
-            toast.error("Error" + error);
+            //toast.error("Error" + error);
         }
     }
 

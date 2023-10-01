@@ -1,6 +1,6 @@
 import { convertFileSrc, invoke } from "@tauri-apps/api/tauri";
 import {createContext, useContext, useState} from "react";
-import { toast } from "sonner";
+//import { toast } from "sonner";
 import { list_video } from "../interface/main";
 import { ChangerVideo } from "../function/bodyWalpaper";
 
@@ -32,7 +32,7 @@ export function VideoProvider({children}: any) {
             ChangerVideo(url);
         } catch (error) {
             console.log(error);
-            toast.error("Error: " + error);
+            //toast.error("Error: " + error);
         }
     }
 

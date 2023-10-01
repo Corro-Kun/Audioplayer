@@ -22,9 +22,12 @@ export async function ChangerVideo(url: string){
     toast.promise(video.play(), {
         loading: "Cargando video",
         success: "Video cargado",
-        error(error) {
+        error: "ya se esta reproduciendo el video"
+        /*
+        (error) {
             return `Error: ${error}`;
         },
+        */
     })
  
 }
