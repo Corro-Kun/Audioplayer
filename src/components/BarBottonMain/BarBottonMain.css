@@ -11,6 +11,9 @@
     align-items: center;
     justify-content: space-between;
 }
+.BarBottonMain-Bar h2 {
+    text-shadow: 0 0 5px #000;
+}
 .BarBottonMain-Bar button{
     cursor: pointer;
     padding: 8px 12px 8px 12px;

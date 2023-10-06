@@ -7,9 +7,9 @@ function BarBottonMain(){
     return(
         <div className="BarBottonMain-Render" >
             <div className="BarBottonMain-Bar" >
-                <h2>V0.0.1</h2>
+                <h2>V0.3.0</h2>
                 <button onClick={()=> navigate("/home")} >Entrar</button>
-                <Made name="Corro-Kun" />
+                <Made name="Corro-Kun"/>
             </div>
         </div>
     );

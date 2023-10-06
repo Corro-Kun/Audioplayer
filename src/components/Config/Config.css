@@ -26,6 +26,9 @@
     align-items: center;
     justify-content: space-between;
 }
+.Checkbox-div label{
+    text-shadow: 0 0 5px #000;
+}
 .Checkbox-div input[type="checkbox"]{
     cursor: pointer;
     margin-right: 10px;

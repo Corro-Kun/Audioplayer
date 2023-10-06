@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "Audioplayer",
-    "version": "0.0.0"
+    "version": "0.3.0"
   },
   "tauri": {
     "allowlist": {
@@ -41,7 +41,7 @@
         "icons/128x128.png",
         "icons/128x128@2x.png",
         "icons/icon.icns",
-        "icons/icon.ico"
+        "icons/icon.icon"
       ],
       "windows": {
         "allowDowngrades": true,
@@ -55,9 +55,11 @@
           "silent": true,
           "type": "downloadBootstrapper"
         },
-        "wix": null
+        "wix": {
+          "language": "en-US"
+        }
       }
-    },
+   },
     "security": {
       "csp": "default-src: 'self'; media-src 'self' stream: https://* asset: https://*  "
     },

@@ -15,3 +15,6 @@
 .Made-Bar:hover img{
     transform: scale(1.1);
 }
+.Made-Bar p{
+    text-shadow: 0 0 5px #000;
+}

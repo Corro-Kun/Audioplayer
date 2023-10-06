@@ -91,6 +91,9 @@
     padding-left: 10px;
     width: 35%;
 }
+.duration p{
+    text-shadow: 0 0 5px #000;
+}
 .volumn{
     display: flex;
     width: 35%;

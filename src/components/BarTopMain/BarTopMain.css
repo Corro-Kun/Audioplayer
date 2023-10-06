@@ -6,3 +6,6 @@
     align-items: center;
     justify-content: center;
 }
+.BarTopMain-Reder h2{
+    text-shadow: 0 0 5px #000;
+}
