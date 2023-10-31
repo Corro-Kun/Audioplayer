@@ -11,6 +11,20 @@
     align-items: center;
     justify-content: space-between;
 }
+.BarBottonMain-Bar-Vercion{
+    width: 30%;
+}
+.BarBottonMain-Bar-button{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.BarBottonMain-Bar-Logo{
+    width: 30%;
+    display: flex;
+    justify-content: right;
+}
 .BarBottonMain-Bar h2 {
     text-shadow: 0 0 5px #000;
 }

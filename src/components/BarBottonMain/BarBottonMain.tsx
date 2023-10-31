@@ -7,9 +7,15 @@ function BarBottonMain(){
     return(
         <div className="BarBottonMain-Render" >
             <div className="BarBottonMain-Bar" >
-                <h2>V0.3.0</h2>
-                <button onClick={()=> navigate("/home")} >Entrar</button>
-                <Made name="Corro-Kun"/>
+                <div className="BarBottonMain-Bar-Vercion" >
+                    <h2>V0.3.0</h2>
+                </div>
+                <div className="BarBottonMain-Bar-button" >
+                    <button onClick={()=> navigate("/home")} >Entrar</button>
+                </div>
+                <div className="BarBottonMain-Bar-Logo" >
+                    <Made name="Corro-Kun"/>
+                </div>
             </div>
         </div>
     );
