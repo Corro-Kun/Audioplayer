@@ -1,5 +1,5 @@
 import { convertFileSrc, invoke } from "@tauri-apps/api/tauri";
-import {createContext, useContext, useState} from "react";
+import {createContext, useContext, useRef, useState} from "react";
 //import { toast } from "sonner";
 import { list_video } from "../interface/main";
 import { ChangerVideo } from "../function/bodyWalpaper";
@@ -11,6 +11,8 @@ export function useVideo() {
 }
 
 export function VideoProvider({children}: any) {
+
+    const InputVideo = useRef(null);
 
     const [Video, setVideo] = useState([{
         name: "",
@@ -50,7 +52,7 @@ export function VideoProvider({children}: any) {
     }
 
     return(
-        <VideoContext.Provider value={{getVideo, Video, changerVideo, ChangerStateListFondos, listFondos,configState, ChangerConfigState}}>
+        <VideoContext.Provider value={{getVideo, Video, changerVideo, ChangerStateListFondos, listFondos,configState, ChangerConfigState, InputVideo}}>
             {children}
         </VideoContext.Provider>
     );

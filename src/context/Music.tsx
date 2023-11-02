@@ -1,4 +1,4 @@
-import {useContext, createContext, useState} from "react";
+import {useContext, createContext, useState, useRef} from "react";
 import {invoke} from "@tauri-apps/api/tauri"
 import {convertFileSrc} from "@tauri-apps/api/tauri"
 //import {toast} from "sonner";
@@ -15,6 +15,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
     const [Music, setMusic] =  useState([{name: "", path: "", statue: false}]);
     const [Play, setPlay] = useState(false);
     const [Index, setIndex] = useState(0);
+    const InputMusic = useRef(null);
 
     async function getMusic(){
         let data: list_music[] = await invoke("get_path_music");
@@ -143,7 +144,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
 
 
     return(
-        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, listMusic, ChangerStateListMusic, durtationInput, durationInputMax, changeDuration}}>
+        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, listMusic, ChangerStateListMusic, durtationInput, durationInputMax, changeDuration, InputMusic}}>
             {children}
         </MusicContext.Provider>
     );

@@ -4,8 +4,8 @@ import {GoPencil} from "react-icons/go";
 import "./Config.css"
 
 function Config(){
-    const {ChangerStateListMusic, listMusic} = useMusic();
-    const {ChangerStateListFondos, listFondos, configState, ChangerConfigState}:any = useVideo();
+    const {ChangerStateListMusic, listMusic, InputMusic} = useMusic();
+    const {ChangerStateListFondos, listFondos, configState, ChangerConfigState, InputVideo}:any = useVideo();
     return(
         <div className="List-Div-Config-Render">
             <div className="List-Div-Config" style={configState? {display: "none"} : {}} >
@@ -14,11 +14,11 @@ function Config(){
                 </div>
                 <div className="Checkbox-div" >
                     <label>{listFondos? "Activar": "Desactivar"} fondos</label>
-                    <input type="checkbox" onChange={ChangerStateListFondos} />
+                    <input type="checkbox" ref={InputVideo} onChange={ChangerStateListFondos} />
                 </div>
                 <div className="Checkbox-div" >
                     <label>{listMusic? "Activar": "Desactivar"} lista</label>
-                    <input type="checkbox" onChange={ChangerStateListMusic} />
+                    <input type="checkbox" ref={InputMusic} onChange={ChangerStateListMusic} />
                 </div>
                 <div>
                 </div>
