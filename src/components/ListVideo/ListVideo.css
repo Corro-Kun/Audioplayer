@@ -11,8 +11,8 @@
     height: 95%;
     backdrop-filter: blur(15px);
     border-radius: 20px;
-    border: 2px solid black;
-    box-shadow: 0 0 20px #000;
+    border: 2px solid var(--Border_Color);
+    box-shadow: 0 0 20px var(--Shadow_Color);
     transition: .5s;
     animation: Init-Video 0.5s ease-in-out;
 }

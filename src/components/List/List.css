@@ -18,8 +18,8 @@
     background: transparent;
     backdrop-filter: blur(15px);
     border-radius: 20px;
-    border: 2px solid black;
-    box-shadow: 0 0 20px #000;
+    border: 2px solid var(--Border_Color);
+    box-shadow: 0 0 20px var(--Shadow_Color);
     overflow: hidden;
     animation: Init-Music 0.5s ease-in-out;
     transition: .5s ease-in-out;
@@ -33,7 +33,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--Border_Color);
     cursor: pointer;
 }
 .List-Title h2{
@@ -46,7 +46,7 @@
     background: transparent;
     overflow: auto;
     flex-direction: column;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--Border_Color);
 }
 
 @keyframes Init-Music{
@@ -60,7 +60,7 @@
 .List-Music-Item{
     padding: 5px 10px;
     margin: 0 10px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--Border_Color);
     cursor: pointer;
     transition: .2s ease-in-out;
 }

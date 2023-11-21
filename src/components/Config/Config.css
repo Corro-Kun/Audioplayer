@@ -11,8 +11,8 @@
     height: 100%;
     backdrop-filter: blur(15px);
     border-radius: 20px;
-    border: 2px solid black;
-    box-shadow: 0 0 20px #000;
+    border: 2px solid var(--Border_Color);
+    box-shadow: 0 0 20px var(--Shadow_Color);
     transition: .5s;
     animation: Init-Config 0.5s ease-in-out;
 }
@@ -41,6 +41,14 @@
     height: 100%;
 }
 .List-Div-Config-Button h2{
+    cursor: pointer;
+}
+.Checkbox-div-Color{
+    margin-right: 6px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
 }
 @keyframes Init-Config{
