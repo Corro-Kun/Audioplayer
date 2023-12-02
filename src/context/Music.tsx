@@ -132,6 +132,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         setDurationInput(value);
         audio.currentTime = value;
         audio.play();
+        setPlay(true);
     }
 
     // state para el estado de las listas

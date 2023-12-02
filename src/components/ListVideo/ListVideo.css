@@ -28,3 +28,15 @@
         transform: translateX(0%);
     }
 }
+
+.List-Div-video::-webkit-scrollbar{
+    width: 10px;
+    background: transparent;
+}
+.List-Div-video::-webkit-scrollbar-thumb{
+    background: var(--Text_Color);
+    border-radius: 10px;
+}
+.List-Div-video::-webkit-scrollbar-track{
+    background: transparent;
+}

@@ -57,6 +57,20 @@
         transform: scale(1);
     }
 }
+.List-Music::-webkit-scrollbar{
+    background: transparent;
+    width: 8px;
+}
+
+.List-Music::-webkit-scrollbar-thumb{
+    background: var(--Text_Color);
+    border-radius: 10px;
+}
+
+.List-Music::-webkit-scrollbar-track{
+    background: transparent;
+}
+
 .List-Music-Item{
     padding: 5px 10px;
     margin: 0 10px;

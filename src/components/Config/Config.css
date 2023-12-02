@@ -59,3 +59,15 @@
         transform: translateX(0%);
     }
 }
+
+.List-Div-Config::-webkit-scrollbar{
+    width: 10px;
+    background: transparent;
+}
+.List-Div-Config::-webkit-scrollbar-thumb{
+    background: var(--Text_Color);
+    border-radius: 10px;
+}
+.List-Div-Config::-webkit-scrollbar-track{
+    background: transparent;
+}
