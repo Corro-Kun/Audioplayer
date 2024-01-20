@@ -2,7 +2,7 @@ import { convertFileSrc, invoke } from "@tauri-apps/api/tauri";
 import {createContext, useContext, useRef, useState} from "react";
 //import { toast } from "sonner";
 import { list_video } from "../interface/main";
-import { ChangerVideo } from "../function/bodyWalpaper";
+import { ChangerVideo } from "../lib/bodyWalpaper";
 
 export const VideoContext = createContext({});
 

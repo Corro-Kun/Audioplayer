@@ -3,7 +3,7 @@ import {invoke} from "@tauri-apps/api/tauri"
 import {convertFileSrc} from "@tauri-apps/api/tauri"
 //import {toast} from "sonner";
 import { list_music } from "../interface/main";
-import { OpeDurations } from "../function/MusicOpe";
+import { OpeDurations } from "../lib/MusicOpe";
 
 const MusicContext = createContext({} as any);
 
