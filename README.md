@@ -7,6 +7,9 @@
         Anime Theme Audio Player
         <br>
         <br>
+        <img src="https://skillicons.dev/icons?i=tauri,react,ts,rust,sqlite" alt="stack">
+        <br>
+        <br>
         images of the application:
         <br>
         <br>
