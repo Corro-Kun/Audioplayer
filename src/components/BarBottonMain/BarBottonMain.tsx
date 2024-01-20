@@ -8,7 +8,7 @@ function BarBottonMain(){
         <div className="BarBottonMain-Render" >
             <div className="BarBottonMain-Bar" >
                 <div className="BarBottonMain-Bar-Vercion" >
-                    <h2>V0.3.0</h2>
+                    <h2>V0.3.5</h2>
                 </div>
                 <div className="BarBottonMain-Bar-button" >
                     <button onClick={()=> navigate("/home")} >Entrar</button>
