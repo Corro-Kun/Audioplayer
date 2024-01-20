@@ -15,6 +15,7 @@
     box-shadow: 0 0 20px var(--Shadow_Color);
     transition: .5s;
     animation: Init-Video 0.5s ease-in-out;
+    overflow: hidden;
 }
 .List-Div-video:hover{
     border: 2px solid #fff;
@@ -29,14 +30,20 @@
     }
 }
 
-.List-Div-video::-webkit-scrollbar{
-    width: 10px;
+.List-Div-Video-Render{
+    height: 90%;
+    width: 100%;
+    overflow: auto;
+}
+
+.List-Div-Video-Render::-webkit-scrollbar{
+    width: 8px;
     background: transparent;
 }
-.List-Div-video::-webkit-scrollbar-thumb{
+.List-Div-Video-Render::-webkit-scrollbar-thumb{
     background: var(--Text_Color);
     border-radius: 10px;
 }
-.List-Div-video::-webkit-scrollbar-track{
+.List-Div-Video-Render::-webkit-scrollbar-track{
     background: transparent;
 }

@@ -10,6 +10,7 @@ function ListVideo(){
                 <div className="List-Title" >
                     <h2 onClick={()=> InputVideo.current.click()} >Fondos</h2>
                 </div>
+                <div className="List-Div-Video-Render" >
                 {
                     Video.map((item: any, index: number)=>(
                         <div className="List-Music-Item" key={index} onClick={()=>changerVideo(index)} >
@@ -17,6 +18,7 @@ function ListVideo(){
                         </div>
                     ))
                 }
+                </div>
             </div>
         </div>
     )
