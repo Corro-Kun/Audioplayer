@@ -6,8 +6,7 @@ fn greet(name: &str) -> String{
 }
 
 use tauri::api::dir::DiskEntry;
-use tauri::api::path;
-use tauri::api::dir;
+use tauri::api::{path, dir};
 use tauri::Result as TauriResult;
 
 #[tauri::command]
