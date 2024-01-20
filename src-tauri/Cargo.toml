@@ -1,7 +1,7 @@
 [package]
 name = "Audioplayer"
 version = "0.0.0"
-description = "A Tauri App"
+description = "AudioPlayer for Corro-Kun"
 authors = ["Kevin Correales"]
 license = ""
 repository = "https://github.com/Corro-Kun/Audioplayer"
