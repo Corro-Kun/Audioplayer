@@ -37,8 +37,10 @@
     outline: none;
 }
 .List-Div-Config-Button{
+    display: flex;
     width: 80%;
     height: 100%;
+    align-items: flex-start;
 }
 .List-Div-Config-Button h2{
     cursor: pointer;
