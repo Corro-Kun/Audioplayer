@@ -6,6 +6,7 @@ import "./Config.css"
 function Config(){
     const {ChangerStateListMusic, listMusic, InputMusic} = useMusic();
     const {ChangerStateListFondos, listFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, ChangerColorLabel, InputColorBorder, ChangerColorBorder, InputColorShadow, ChangerColorShadow}:any = useVideo();
+
     return(
         <div className="List-Div-Config-Render">
             <div className="List-Div-Config" style={configState? {display: "none"} : {}} >

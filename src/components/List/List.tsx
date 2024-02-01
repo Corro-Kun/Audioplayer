@@ -6,7 +6,7 @@ import ListVideo from "../ListVideo/ListVideo";
 import Config from "../Config/Config";
 
 function List(){
-    const {getMusic, Music, PlayMusic, listMusic, InputMusic}:any = useMusic();
+    const {getMusic, Music, PlayMusic, listMusic, InputMusic, CloseAnimation }:any = useMusic();
     const {getVideo}:any = useVideo();
     useEffect(()=>{
         getMusic()
@@ -16,7 +16,7 @@ function List(){
         <div className="List-Div-Render" >
             <Config />
                 <div className="List-Div-Render-Main" >
-                    <div className="List-Div" style={listMusic? {display: "none"} : {}} >
+                    <div className={CloseAnimation? "List-Div Active": "List-Div"} style={listMusic? {display: "none"} : {}} >
                         <div className="List-Title">
                             <h2 onClick={()=>InputMusic.current.click()} >Tu Música</h2>
                         </div>

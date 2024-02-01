@@ -28,6 +28,9 @@
     border: 2px solid #fff;
     box-shadow: 0 0 20px #fff;
 }
+.List-Div.Active{
+    animation: Close-Music 0.5s ease-in-out;
+}
 .List-Title{
     padding: 2px;
     display: flex;
@@ -55,6 +58,14 @@
     }
     100%{
         transform: scale(1);
+    }
+}
+@keyframes Close-Music{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
     }
 }
 .List-Music::-webkit-scrollbar{

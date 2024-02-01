@@ -138,14 +138,25 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
     // state para el estado de las listas
 
     const [listMusic, setListMusic] = useState(false);
+    const [CloseAnimation, setCloseAnimation] = useState(false);
 
     function ChangerStateListMusic(){
-        setListMusic(!listMusic);
+        if(listMusic === true){
+            setListMusic(!listMusic);
+            setCloseAnimation(!CloseAnimation);
+        }
+        else if(listMusic === false){
+            setCloseAnimation(!CloseAnimation);
+            setTimeout(()=>{
+                setListMusic(!listMusic);
+            },400);
+        }
     }
 
 
+
     return(
-        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, listMusic, ChangerStateListMusic, durtationInput, durationInputMax, changeDuration, InputMusic}}>
+        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, listMusic, ChangerStateListMusic, durtationInput, durationInputMax, changeDuration, InputMusic, CloseAnimation}}>
             {children}
         </MusicContext.Provider>
     );
