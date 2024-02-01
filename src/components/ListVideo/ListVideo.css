@@ -29,7 +29,17 @@
         transform: translateX(0%);
     }
 }
-
+.List-Div-video.Active{
+    animation: Close-Video 0.5s ease-in-out;
+}
+@keyframes Close-Video{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
 .List-Div-Video-Render{
     height: 90%;
     width: 100%;

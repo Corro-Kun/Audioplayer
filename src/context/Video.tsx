@@ -49,12 +49,22 @@ export function VideoProvider({children}: any) {
 
     // variables para el estado de las listas y fondos
     const [listFondos, setListFondos] = useState(false);
+    const [CloseAnimation, setCloseAnimation] = useState(false);
 
     function ChangerStateListFondos(){
-        setListFondos(!listFondos);
+        if(listFondos){
+            setListFondos(!listFondos);
+            setCloseAnimation(!CloseAnimation);
+        }else if(!listFondos){
+            setCloseAnimation(!CloseAnimation);
+            setTimeout(()=>{
+                setListFondos(!listFondos);
+            }, 400);
+        }
     }
 
     const [configState, setConfigState] = useState(false);
+
 
     function ChangerConfigState(){
         setConfigState(!configState);
@@ -76,7 +86,7 @@ export function VideoProvider({children}: any) {
     }
 
     return(
-        <VideoContext.Provider value={{getVideo, Video, changerVideo, ChangerStateListFondos, listFondos,configState, ChangerConfigState, InputVideo, InputColorLabel, ChangerColorLabel, InputColorBorder, ChangerColorBorder, InputColorShadow, ChangerColorShadow}}>
+        <VideoContext.Provider value={{getVideo, Video, changerVideo, ChangerStateListFondos, listFondos,configState, ChangerConfigState, InputVideo, InputColorLabel, ChangerColorLabel, InputColorBorder, ChangerColorBorder, InputColorShadow, ChangerColorShadow, CloseAnimation}}>
             {children}
         </VideoContext.Provider>
     );
