@@ -4,7 +4,7 @@ import {GoPencil} from "react-icons/go";
 import "./Config.css"
 
 function Config(){
-    const {ChangerStateListMusic, listMusic, InputMusic} = useMusic();
+    const {ChangerStateListMusic, InputMusic, CloseAnimation} = useMusic();
     const {ChangerStateListFondos, listFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, ChangerColorLabel, InputColorBorder, ChangerColorBorder, InputColorShadow, ChangerColorShadow}:any = useVideo();
 
     return(
@@ -18,7 +18,7 @@ function Config(){
                     <input type="checkbox" ref={InputVideo} onChange={ChangerStateListFondos} />
                 </div>
                 <div className="Checkbox-div" >
-                    <label>{listMusic? "Activar": "Desactivar"} lista</label>
+                    <label>{CloseAnimation? "Activar": "Desactivar"} lista</label>
                     <input type="checkbox" ref={InputMusic} onChange={ChangerStateListMusic} />
                 </div>
                 <div className="Checkbox-div" >
