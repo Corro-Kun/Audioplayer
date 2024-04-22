@@ -5,7 +5,7 @@ import "./Config.css"
 
 function Config(){
     const {ChangerStateListMusic, InputMusic, CloseAnimation} = useMusic();
-    const {ChangerStateListFondos, listFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, ChangerColorLabel, InputColorBorder, ChangerColorBorder, InputColorShadow, ChangerColorShadow}:any = useVideo();
+    const {ChangerStateListFondos, listFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, ChangerColorLabel, InputColorBorder, ChangerColorBorder, InputColorShadow, ChangerColorShadow, CloseAnimationV}:any = useVideo();
 
     return(
         <div className="List-Div-Config-Render">
@@ -14,7 +14,7 @@ function Config(){
                     <h2>Configuraciones</h2>
                 </div>
                 <div className="Checkbox-div" >
-                    <label>{listFondos? "Activar": "Desactivar"} fondos</label>
+                    <label>{CloseAnimationV? "Activar": "Desactivar"} fondos</label>
                     <input type="checkbox" ref={InputVideo} onChange={ChangerStateListFondos} />
                 </div>
                 <div className="Checkbox-div" >
