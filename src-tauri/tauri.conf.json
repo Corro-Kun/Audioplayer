@@ -8,11 +8,16 @@
   },
   "package": {
     "productName": "Audioplayer",
-    "version": "0.3.5"
+    "version": "0.3.6"
   },
   "tauri": {
     "allowlist": {
       "all": false,
+      "app": {
+        "all": true, 
+        "show": true,
+        "hide": true
+      },
       "protocol": {
         "all": false,
         "asset": true,

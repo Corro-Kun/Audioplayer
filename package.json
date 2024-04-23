@@ -1,7 +1,7 @@
 {
   "name": "Audioplayer",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.3.6",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
