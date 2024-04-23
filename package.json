@@ -1,5 +1,5 @@
 {
-  "name": "Audioplayer",
+  "name": "AudioPlayer",
   "private": true,
   "version": "0.3.6",
   "type": "module",
