@@ -31,6 +31,27 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         });
         setMusic(data);
     }
+    
+    function handleKeyDown(e: any){
+        /*
+        if(e.key === " " || e.key === "MediaPlayPause"){
+            ControlMusic();
+        }else if(e.key === "MediaTrackNext"){
+            NextMusic();
+        }else if(e.key === "MediaTrackPrevious"){
+            BackMusic();
+        }
+        */
+       
+    }
+
+    function changerKey(){
+       document.addEventListener("keydown", handleKeyDown);
+    }
+
+    function deleteChangerKey(){
+        document.removeEventListener("keydown", handleKeyDown);
+    }
 
     async function PlayMusic(i: number){
         try {
@@ -56,6 +77,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
             cache[i].statue = true;
             setMusic(cache);
             document.title = Music[i].name;
+            
         } catch (error) {
             console.log(error);
             //toast.error("Error" + error);
@@ -68,6 +90,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
             audio.pause();
             setPlay(false);
         }else{
+            //audio.play();
             await audio.play();
             setPlay(true);
         }
@@ -156,7 +179,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
 
 
     return(
-        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, listMusic, ChangerStateListMusic, durtationInput, durationInputMax, changeDuration, InputMusic, CloseAnimation}}>
+        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, listMusic, ChangerStateListMusic, durtationInput, durationInputMax, changeDuration, InputMusic, CloseAnimation, changerKey, deleteChangerKey}}>
             {children}
         </MusicContext.Provider>
     );
