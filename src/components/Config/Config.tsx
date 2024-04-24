@@ -5,7 +5,7 @@ import "./Config.css"
 
 function Config(){
     const {ChangerStateListMusic, InputMusic, CloseAnimation} = useMusic();
-    const {ChangerStateListFondos, listFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, ChangerColorLabel, InputColorBorder, ChangerColorBorder, InputColorShadow, ChangerColorShadow, CloseAnimationV}:any = useVideo();
+    const {ChangerStateListFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, ChangerColorLabel, InputColorBorder, ChangerColorBorder, InputColorShadow, ChangerColorShadow, CloseAnimationV}:any = useVideo();
 
     return(
         <div className="List-Div-Config-Render">

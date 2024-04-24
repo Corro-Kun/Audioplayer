@@ -32,7 +32,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         setMusic(data);
     }
     
-    function handleKeyDown(e: any){
+    function handleKeyDown(){
         /*
         if(e.key === " " || e.key === "MediaPlayPause"){
             ControlMusic();
