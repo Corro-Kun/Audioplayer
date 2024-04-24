@@ -68,6 +68,17 @@
     "security": {
       "csp": "default-src: 'self'; media-src 'self' stream: https://* asset: https://*  "
     },
+    "updater":{
+      "active": true,
+      "dialog": true,
+      "endpoints": [
+        "https://gist.githubusercontent.com/Corro-Kun/c8c7a030a9979aab6476cd4a94be3365/raw/"
+      ],
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDEyMDkwRDNGNUJFQkI5MzQKUldRMHVldGJQdzBKRWlKRzNKaCtBT05tWnVVb2VWV3NQWDdxMU9ubnVEM0hETklyVmRmdlArK0IK",
+      "windows": {
+        "installMode": "passive"
+      }
+    },
     "windows": [
       {
         "fullscreen": false,
