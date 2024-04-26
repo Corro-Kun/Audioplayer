@@ -8,7 +8,7 @@ import {useEffect} from "react";
 function Config(){
     const {ChangerStateListMusic, InputMusic, CloseAnimation} = useMusic();
     const {ChangerStateListFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, InputColorBorder, InputColorShadow, CloseAnimationV}:any = useVideo();
-    const {ChangerColorBorder, ChangerColorLabel, ChangerColorShadow, getColor}:any = useConfig();
+    const {ChangerColorBorder, ChangerColorLabel, ChangerColorShadow, getColor, save, Save}:any = useConfig();
 
     useEffect(()=>{
         getColor();
@@ -42,6 +42,9 @@ function Config(){
                     <label>Color de sombras</label>
                     <input onChange={(e)=> ChangerColorShadow(e)} ref={InputColorShadow} style={{display:"none"}} type="color" />
                     <button onClick={()=> InputColorShadow.current.click()} style={{backgroundColor:"var(--Shadow_Color)"}} className="Checkbox-div-Color" ></button>
+                </div>
+                <div style={save? {}: {display: "none"}} className="List-Config-Button" >
+                    <button onClick={()=> Save()} >Guardar</button>
                 </div>
  
             </div>

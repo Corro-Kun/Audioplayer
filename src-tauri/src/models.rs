@@ -1,11 +1,11 @@
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 
 #[derive(Debug)]
 pub struct Video{
     pub path: String
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct Color{
     pub id: i32,
     pub name: String,

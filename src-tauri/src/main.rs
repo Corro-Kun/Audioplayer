@@ -15,7 +15,7 @@ extern crate rusqlite;
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet, get_path_music, get_path_video, put_path_video, get_video_db, get_color_db])
+        .invoke_handler(tauri::generate_handler![greet, get_path_music, get_path_video, put_path_video, get_video_db, get_color_db, save_color_db])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

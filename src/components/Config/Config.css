@@ -73,3 +73,22 @@
 .List-Div-Config::-webkit-scrollbar-track{
     background: transparent;
 }
+
+.List-Config-Button{
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.List-Config-Button button{
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--Text_Color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: .3s;
+}
+.List-Config-Button button:hover{
+    transform: scale(1.03);
+}

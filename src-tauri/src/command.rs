@@ -87,3 +87,15 @@ pub fn get_color_db() -> Vec<Color>{
 
     config_list
 }
+
+#[tauri::command]
+pub fn save_color_db(colors: Vec<Color>) {
+    let conn = connect();
+
+    for color in colors{
+        let _ = conn.execute(
+            "UPDATE color SET color = ?1 WHERE id = ?2",
+            params![color.color, color.id],
+        ).expect("error");
+    }
+}
