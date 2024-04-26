@@ -2,7 +2,7 @@ use tauri::api::dir::DiskEntry;
 use tauri::api::{path, dir};
 use tauri::Result as TauriResult;
 use rusqlite::{params, Result as SqliteResult};
-use crate::models::Video;
+use crate::models::*;
 use crate::config::connect;
 
 #[tauri::command]
@@ -62,4 +62,29 @@ pub fn get_video_db() -> String {
     }
 
     path_video
+}
+
+#[tauri::command]
+pub fn get_config_db() -> Vec<Config>{
+    let conn = connect();
+
+    let mut stmt = conn.prepare("SELECT * FROM config;").map_err(|err| format!("the error is {}", err.to_string())).expect("error");
+
+    let config = stmt.query_map([], |row|{
+        Ok(Config{
+            id: row.get(0)?,
+            name: row.get(1)?,
+            color: row.get(2)?,
+            size: row.get(3)?
+        })
+    }).expect("error");
+
+    let mut config_list = Vec::new();
+
+    for conf in config {
+        let config = conf.expect("error");
+        config_list.push(config);
+    }
+
+    config_list
 }

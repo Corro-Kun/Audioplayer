@@ -13,13 +13,14 @@ function Main(){
             console.log("no mames",error,status);
         });
         try{
-            const {shouldUpdate, manifest} = await checkUpdate();
+            const {shouldUpdate , manifest} = await checkUpdate();
             if(!shouldUpdate) return;
             toast.loading(`Installing update ${manifest?.version}, ${manifest?.date}, ${manifest?.body}`)
             await installUpdate();
             await relaunch();
         }catch(e){
-            toast.error("Error al actualizar "+e);
+            //toast.error("Error al actualizar "+e);
+            console.log(e);
         }
     }
 
