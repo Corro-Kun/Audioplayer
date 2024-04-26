@@ -70,23 +70,8 @@ export function VideoProvider({children}: any) {
         setConfigState(!configState);
     }
 
-    // funcion para cambiar el color de las letras
-    function ChangerColorLabel({target: {value}}: any){
-        document.documentElement.style.setProperty("--Text_Color", value);
-    }
-
-    // funcion para cambiar el color de los bordes
-    function ChangerColorBorder({target: {value}}: any){
-        document.documentElement.style.setProperty("--Border_Color", value);
-    }
-
-    // funcion para cambiar el color de los bordes
-    function ChangerColorShadow({target: {value}}: any){
-        document.documentElement.style.setProperty("--Shadow_Color", value);
-    }
-
     return(
-        <VideoContext.Provider value={{getVideo, Video, changerVideo, ChangerStateListFondos, listFondos,configState, ChangerConfigState, InputVideo, InputColorLabel, ChangerColorLabel, InputColorBorder, ChangerColorBorder, InputColorShadow, ChangerColorShadow, CloseAnimationV}}>
+        <VideoContext.Provider value={{getVideo, Video, changerVideo, ChangerStateListFondos, listFondos,configState, ChangerConfigState, InputVideo, InputColorLabel, InputColorBorder, InputColorShadow, CloseAnimationV}}>
             {children}
         </VideoContext.Provider>
     );

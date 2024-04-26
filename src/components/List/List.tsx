@@ -4,6 +4,7 @@ import "./List.css"
 import { useVideo } from "../../context/Video";
 import ListVideo from "../ListVideo/ListVideo";
 import Config from "../Config/Config";
+import {ConfigProvider} from "../../context/Config";
 
 function List(){
     const {getMusic, Music, PlayMusic, listMusic, InputMusic, CloseAnimation, changerKey, deleteChangerKey}:any = useMusic();
@@ -21,7 +22,9 @@ function List(){
     },[]);
     return(
         <div className="List-Div-Render" >
-            <Config />
+            <ConfigProvider>
+                <Config />
+            </ConfigProvider>
                 <div className="List-Div-Render-Main" >
                     <div className={CloseAnimation? "List-Div Active": "List-Div"} style={listMusic? {display: "none"} : {}} >
                         <div className="List-Title">

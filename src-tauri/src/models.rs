@@ -1,9 +1,11 @@
+use serde::Serialize;
+
 #[derive(Debug)]
 pub struct Video{
     pub path: String
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct Config{
     pub id: i32,
     pub name: String,

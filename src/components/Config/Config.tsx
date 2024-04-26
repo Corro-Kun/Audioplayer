@@ -2,10 +2,12 @@ import { useMusic } from "../../context/Music";
 import { useVideo } from "../../context/Video";
 import {GoPencil} from "react-icons/go";
 import "./Config.css"
+import { useConfig } from "../../context/Config";
 
 function Config(){
     const {ChangerStateListMusic, InputMusic, CloseAnimation} = useMusic();
-    const {ChangerStateListFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, ChangerColorLabel, InputColorBorder, ChangerColorBorder, InputColorShadow, ChangerColorShadow, CloseAnimationV}:any = useVideo();
+    const {ChangerStateListFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, InputColorBorder, InputColorShadow, CloseAnimationV}:any = useVideo();
+    const {ChangerColorBorder, ChangerColorLabel, ChangerColorShadow}:any = useConfig();
 
     return(
         <div className="List-Div-Config-Render">
