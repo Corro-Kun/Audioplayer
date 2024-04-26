@@ -114,11 +114,13 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
 
     function FilterMusic({target:{value}}: {target: {value: string}}){
         setListMusic(false);
+        setCloseAnimation(false);
         if(value === ""){
             getMusic();
         }else{
             const data = Music.filter((item)=>{
                 return item.name?.toLowerCase().includes(value.toLowerCase());
+
             });
             setMusic(data);
         }
