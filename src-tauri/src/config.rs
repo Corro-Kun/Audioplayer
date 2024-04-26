@@ -37,11 +37,10 @@ pub fn connect() -> Connection{
 
     if !table_exists {
         let _ = conn.execute(
-            "CREATE TABLE config (
+            "CREATE TABLE color (
                 id INTEGER PRIMARY KEY,
                 name TEXT NOT NULL,
-                color TEXT NOT NULL,
-                size TEXT NOT NULL
+                color TEXT NOT NULL
             )",
             [],
         );
@@ -53,12 +52,12 @@ pub fn connect() -> Connection{
 }
 
 fn default_config (conn: &mut Connection){
-    let values_examples = Config::default();
+    let values_examples = Color::default();
 
     for value in values_examples{
         let _ = conn.execute(
-            "INSERT INTO config (id, name, color, size) VALUES (?1, ?2, ?3, ?4)",
-            params![value.id, value.name, value.color, value.size],
+            "INSERT INTO color (id, name, color) VALUES (?1, ?2, ?3)",
+            params![value.id, value.name, value.color],
         );
     }
 }

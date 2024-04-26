@@ -6,28 +6,26 @@ pub struct Video{
 }
 
 #[derive(Debug, Serialize)]
-pub struct Config{
+pub struct Color{
     pub id: i32,
     pub name: String,
     pub color: String,
-    pub size: String
 }
 
-impl Config{
-    pub fn new(id: i32, name: String, color: String, size: String) -> Config{
-        Config{
+impl Color{
+    pub fn new(id: i32, name: String, color: String) -> Color{
+        Color{
             id,
             name,
             color,
-            size
         }
     }
 
-    pub fn default() -> Vec<Config>{
+    pub fn default() -> Vec<Color>{
         vec![
-            Config::new(1, "word".to_string(), "#fff".to_string(), "no".to_string()),
-            Config::new(2, "border".to_string(), "#000".to_string(), "2px".to_string()),
-            Config::new(3, "shader".to_string(), "#000000".to_string(), "20px".to_string())
+            Color::new(1, "--Text_Color".to_string(), "#fff".to_string()),
+            Color::new(2, "--Border_Color".to_string(), "#000".to_string()),
+            Color::new(3, "--Shadow_Color".to_string(), "#000000".to_string())
         ]
     }
 }

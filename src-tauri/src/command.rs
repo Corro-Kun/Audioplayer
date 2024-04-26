@@ -65,17 +65,16 @@ pub fn get_video_db() -> String {
 }
 
 #[tauri::command]
-pub fn get_config_db() -> Vec<Config>{
+pub fn get_color_db() -> Vec<Color>{
     let conn = connect();
 
-    let mut stmt = conn.prepare("SELECT * FROM config;").map_err(|err| format!("the error is {}", err.to_string())).expect("error");
+    let mut stmt = conn.prepare("SELECT * FROM color;").map_err(|err| format!("the error is {}", err.to_string())).expect("error");
 
     let config = stmt.query_map([], |row|{
-        Ok(Config{
+        Ok(Color{
             id: row.get(0)?,
             name: row.get(1)?,
-            color: row.get(2)?,
-            size: row.get(3)?
+            color: row.get(2)?
         })
     }).expect("error");
 
