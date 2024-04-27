@@ -143,6 +143,10 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         setDurationInputMax(duration);
 
         setDuration(OpeDurations(currentTimeInSeconds) + " | " + OpeDurations(duration));
+
+        const bar = document.getElementById("Control-Progress") as HTMLInputElement;
+        
+        bar.style.background = `linear-gradient(to right, var(--Text_Color) 0% ,var(--Text_Color) ${Number(bar.value) / Number(bar.max) * 100}%, var(--Border_Color) ${Number(bar.value) / Number(bar.max) * 100}% ,var(--Border_Color) 0%)`;
     };
 
     function changeVolume({target:{value}}: {target: {value: number}}){

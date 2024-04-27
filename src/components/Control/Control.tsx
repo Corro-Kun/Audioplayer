@@ -17,7 +17,7 @@ function Control(){
         <div className="Control-Render-Div" >
             <div className="Control-Div" >
                 <div className="Control-Duration" >
-                    <input type="range" value={durtationInput} max={durationInputMax} min={0.0} step={0.1} onChange={(e)=>changeDuration(e)} />
+                    <input id="Control-Progress" type="range" value={durtationInput} max={durationInputMax} min={0.0} step={0.1} onChange={(e)=>changeDuration(e)} />
                 </div>
                 <div className="Control-Div-Manager" >
                     <div className="duration" >
