@@ -2,12 +2,36 @@
 
 Welcome to my project! We appreciate your interest in contributing. Before you get started, please take a moment to review these guidelines to ensure smooth collaboration and maintain consistency across contributions.
 
+## installation requirements
+
+- [Node.js](https://nodejs.org/en/download/)
+- [rust](https://www.rust-lang.org/tools/install)
+
+## how to run
+
+- clone the repository
+```bash
+git clone https://github.com/Corro-Kun/Audioplayer.git
+```
+- change directory to the project folder
+```bash
+cd Audioplayer
+```
+- install the dependencies
+```bash
+npm install
+```
+- run the project
+```bash
+npm run tauri dev
+```
+
 ## How to Contribute
 
 1. Fork the repository to your GitHub account.
 2. Clone the forked repository to your local machine.
 ```bash
-git clone https://github.com/your-username/Remember.App.git
+git clone https://github.com/your-username/Audioplayer.git
 ```
 3. Create a new branch for your feature or bug fix.
 ```bash
@@ -30,7 +54,7 @@ If you encounter any bugs, have suggestions for new features, or want to discuss
 
 ## License
 
-By contributing to this project, you agree that your contributions will be licensed under the project's [MIT License](LICENSE).
+By contributing to this project, you agree that your contributions will be licensed under the project's [BSD 4-Clause](LICENSE).
 
 Thank you for contributing to my project!
 

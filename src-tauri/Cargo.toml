@@ -1,9 +1,9 @@
 [package]
 name = "Audioplayer"
-version = "0.3.6"
+version = "0.4.0"
 description = "AudioPlayer for Corro-Kun"
 authors = ["Kevin Stiven Pava Correales"]
-license = "MIT License"
+license = "BSD 4-Clause"
 repository = "https://github.com/Corro-Kun/Audioplayer"
 edition = "2021"
 
