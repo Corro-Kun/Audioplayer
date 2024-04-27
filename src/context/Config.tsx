@@ -20,6 +20,19 @@ export function ConfigProvider({children}: any) {
         setColor(data);
     }
 
+    function ChangerColor({target: {value, name}}: {target: {value: string, name: string}}){
+        setColor(color.map((data: Color)=>{
+            if(data.id.toString() === name){
+                confirm("funciona el if");
+                document.documentElement.style.setProperty(data.name, value);
+                setSave(true);
+                data.color = value;
+            }
+            return data;
+        }));
+    }
+
+    /*
      // funcion para cambiar el color de las letras
     function ChangerColorLabel({target: {value}}: any){
         document.documentElement.style.setProperty("--Text_Color", value);
@@ -56,13 +69,14 @@ export function ConfigProvider({children}: any) {
         }));
     }
 
+    */
     async function Save(){
         await invoke("save_color_db", {colors: color});
         setSave(false);
     }
 
     return (
-        <ConfigContext.Provider value={{ChangerColorLabel, ChangerColorBorder, ChangerColorShadow, getColor, save, Save}}>
+        <ConfigContext.Provider value={{/*ChangerColorLabel, ChangerColorBorder, ChangerColorShadow,*/ getColor, save, Save,  ChangerColor}}>
             {children}
         </ConfigContext.Provider>
     );
