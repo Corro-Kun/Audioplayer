@@ -20,6 +20,24 @@
     border: 2px solid #fff;
     box-shadow: 0 0 20px #fff;
 }
+.List-Config-Render{
+    height: 84%;
+    overflow-y: auto;
+    border-bottom: 1px solid var(--Border_Color);
+}
+
+.List-Config-Render::-webkit-scrollbar{
+    width: 8px;
+    background: transparent;
+}
+.List-Config-Render::-webkit-scrollbar-thumb{
+    background: var(--Text_Color);
+    border-radius: 10px;
+}
+.List-Config-Render::-webkit-scrollbar-track{
+    background: transparent;
+}
+
 .Checkbox-div{
     display: flex;
     padding: 10px;
@@ -76,6 +94,7 @@
 
 .List-Config-Button{
     margin-top: 2px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,3 +111,47 @@
 .List-Config-Button button:hover{
     transform: scale(1.03);
 }
+.Config-Ranger{
+    padding: 10px 15px 10px 10px;
+}
+.Config-Ranger div{
+    display: flex;
+    justify-content: space-between;
+}
+.Config-Ranger input[type="range"]{
+    margin-top: 14px;
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    border: none;
+    -webkit-appearance: none;
+    height: 6px;
+    border-radius: 5px;
+}
+
+.Config-Ranger input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none; 
+
+  height: 15px;
+  width: 15px;
+  background-color: var(--Text_Color);
+  border-radius: 50%;
+  border: none;
+
+  transition: .2s ease-in-out;
+}
+
+.Config-Ranger input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 5px var(--Shadow_Color)
+}
+
+.Config-Ranger input[type="range"]:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 7px var(--Shadow_Color)
+}
+/*
+.Config-Ranger input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 7px var(--Shadow_Color)
+}
+*/
