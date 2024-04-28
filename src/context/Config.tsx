@@ -82,8 +82,22 @@ export function ConfigProvider({children}: any) {
         setOpacity(value);
     }
 
+    const [shadow, setShadow] = useState(0);
+
+    function changerShadow({target: {value}}: any){
+        document.documentElement.style.setProperty("--Shadow_Px", value+"px");
+        setShadow(value);
+    }
+
+    const [smoothPrimary, setSmoothPrimary] = useState(0);
+
+    function changerSmoothPrimary({target: {value}}: any){
+        document.documentElement.style.setProperty("--Border_Radio_Px_Primary", value+"px");
+        setSmoothPrimary(value);
+    }
+
     return (
-        <ConfigContext.Provider value={{/*ChangerColorLabel, ChangerColorBorder, ChangerColorShadow,*/ getColor, save, Save,  ChangerColor, changerOpacity, opacity}}>
+        <ConfigContext.Provider value={{/*ChangerColorLabel, ChangerColorBorder, ChangerColorShadow,*/ getColor, save, Save,  ChangerColor, changerOpacity, opacity, changerShadow, shadow, smoothPrimary, changerSmoothPrimary}}>
             {children}
         </ConfigContext.Provider>
     );

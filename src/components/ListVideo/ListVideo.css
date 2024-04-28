@@ -10,7 +10,7 @@
     width: 90%;
     height: 95%;
     backdrop-filter: blur(var(--Blur_Px));
-    border-radius: 20px;
+    border-radius: var(--Border_Radio_Px_Primary);
     border: 2px solid var(--Border_Color);
     box-shadow: 0 0 var(--Shadow_Px) var(--Shadow_Color);
     transition: .5s;

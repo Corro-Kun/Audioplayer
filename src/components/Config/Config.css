@@ -10,11 +10,12 @@
     width: 80%;
     height: 100%;
     backdrop-filter: blur(var(--Blur_Px));
-    border-radius: 20px;
+    border-radius: var(--Border_Radio_Px_Primary);
     border: 2px solid var(--Border_Color);
     box-shadow: 0 0 var(--Shadow_Px) var(--Shadow_Color);
     transition: .5s;
     animation: Init-Config 0.5s ease-in-out;
+    overflow: hidden;
 }
 .List-Div-Config:hover{
     border: 2px solid #fff;
