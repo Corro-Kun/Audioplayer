@@ -8,18 +8,11 @@ import {useEffect} from "react";
 function Config(){
     const {ChangerStateListMusic, InputMusic, CloseAnimation} = useMusic();
     const {ChangerStateListFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, InputColorBorder, InputColorShadow, CloseAnimationV}:any = useVideo();
-    const {/*ChangerColorBorder, ChangerColorLabel, ChangerColorShadow,*/ getColor, save, Save, ChangerColor, changerOpacity, opacity, changerShadow, shadow,  smoothPrimary, changerSmoothPrimary}:any = useConfig();
+    const {/*ChangerColorBorder, ChangerColorLabel, ChangerColorShadow,*/ getColor, save, Save, ChangerColor, changerOpacity, opacity, changerShadow, shadow,  smoothPrimary, changerSmoothPrimary, getConfig}:any = useConfig();
 
     useEffect(()=>{
         getColor();
-
-        const Opacity = document.getElementById("Opacity") as HTMLInputElement;
-        const Density = document.getElementById("Density") as HTMLInputElement;
-        const Smooth = document.getElementById("smooth") as HTMLInputElement;
-
-        Opacity.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${Number(Opacity.value) / Number(Opacity.max) * 100}%, var(--Border_Color) ${Number(Opacity.value) / Number(Opacity.max) * 100}%, var(--Border_Color) 100%)`;
-        Density.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${Number(Density.value) / Number(Density.max) * 100}%, var(--Border_Color) ${Number(Density.value) / Number(Density.max) * 100}%, var(--Border_Color) 100%)`;
-        Smooth.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${Number(Smooth.value) / Number(Smooth.max) * 100}%, var(--Border_Color) ${Number(Smooth.value) / Number(Smooth.max) * 100}%, var(--Border_Color) 100%)`;
+        getConfig();
     },[]);
 
     return(
@@ -57,7 +50,7 @@ function Config(){
                             <label>Opacidad</label>
                             <label>{opacity}</label>
                         </div>
-                        <input id="Opacity" type="range" min="0" max="30" onChange={(e)=>{
+                        <input id="Opacity" name="1" type="range" min="0" max="30" value={opacity} onChange={(e)=>{
                             let progress = Number(e.target.value) / Number(e.target.max) * 100;
                             e.target.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${progress}%, var(--Border_Color) ${progress}%, var(--Border_Color) 100%)`;
                             changerOpacity(e);
@@ -68,7 +61,7 @@ function Config(){
                             <label>Densidad de sombras</label>
                             <label>{shadow}</label>
                         </div>
-                        <input id="Density" type="range" min="0" max="30" onChange={(e)=>{
+                        <input id="Density" name="2" type="range" min="0" max="30" value={shadow} onChange={(e)=>{
                             let progress = Number(e.target.value) / Number(e.target.max) * 100;
                             e.target.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${progress}%, var(--Border_Color) ${progress}%, var(--Border_Color) 100%)`;
                             changerShadow(e);
@@ -79,7 +72,7 @@ function Config(){
                             <label>Suavizar bordes</label>
                             <label>{smoothPrimary}</label>
                         </div>
-                        <input id="smooth" type="range" min="0" max="30" onChange={(e)=>{
+                        <input id="smooth" name="3" type="range" min="0" max="30" value={smoothPrimary} onChange={(e)=>{
                             let progress = Number(e.target.value) / Number(e.target.max) * 100;
                             e.target.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${progress}%, var(--Border_Color) ${progress}%, var(--Border_Color) 100%)`;
                             changerSmoothPrimary(e);

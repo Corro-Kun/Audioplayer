@@ -6,7 +6,7 @@ function Filter(){
     return(
         <div className="Filter-Div-Render" >
             <div>
-                <input type="text" id="shear" placeholder="Buscar..." onChange={(e)=> FilterMusic(e)} />
+                <input type="text" id="shear" autoComplete="off" placeholder="Buscar..." onChange={(e)=> FilterMusic(e)} />
             </div>
         </div>
     );

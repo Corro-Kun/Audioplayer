@@ -29,3 +29,28 @@ impl Color{
         ]
     }
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Config{
+    pub id: i32,
+    pub name: String,
+    pub value: String
+}
+
+impl Config{
+    pub fn new(id: i32, name: String, value: String) -> Config{
+        Config{
+            id,
+            name,
+            value,
+        }
+    }
+
+    pub fn default() -> Vec<Config>{
+        vec![
+            Config::new(1, "--Blur_Px".to_string(), "15px".to_string()),
+            Config::new(2, "--Shadow_Px".to_string(), "20px".to_string()),
+            Config::new(3, "--Border_Radio_Px_Primary".to_string(), "20px".to_string())
+        ]
+    }
+}

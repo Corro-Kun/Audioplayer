@@ -45,19 +45,50 @@ pub fn connect() -> Connection{
             [],
         );
 
-        default_config(&mut conn);
+        default_color(&mut conn);
+    }
+
+    table_exists = conn
+        .prepare("SELECT name From sqlite_master WHERE type='table' AND name=?")
+        .and_then(|mut stmt|{
+            stmt.query_row(&["config"], |row| Ok(value = row.get(0)?))
+        })
+        .is_ok();
+
+    if !table_exists {
+        let _ = conn.execute(
+            "CREATE TABLE config (
+                id INTEGER PRIMARY KEY,
+                name TEXT NOT NULL,
+                value TEXT NOT NULL
+            )",
+            [],
+        );
+
+        default_config(&mut conn);  
     }
 
     conn
 }
 
-fn default_config (conn: &mut Connection){
+fn default_color (conn: &mut Connection){
     let values_examples = Color::default();
 
     for value in values_examples{
         let _ = conn.execute(
             "INSERT INTO color (id, name, color) VALUES (?1, ?2, ?3)",
             params![value.id, value.name, value.color],
+        );
+    }
+}
+
+fn default_config (conn: &mut Connection){
+    let values_examples = Config::default();
+
+    for value in values_examples{
+        let _ = conn.execute(
+            "INSERT INTO config (id, name, value) VALUES (?1, ?2, ?3)",
+            params![value.id, value.name, value.value],
         );
     }
 }

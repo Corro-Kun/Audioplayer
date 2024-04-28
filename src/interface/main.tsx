@@ -15,3 +15,9 @@ export interface Color{
     name: string,
     color: string
 }
+
+export interface Config{
+    id: string,
+    name: string,
+    value: string
+}
