@@ -8,7 +8,7 @@ import {useEffect} from "react";
 function Config(){
     const {ChangerStateListMusic, InputMusic, CloseAnimation} = useMusic();
     const {ChangerStateListFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, InputColorBorder, InputColorShadow, CloseAnimationV}:any = useVideo();
-    const {/*ChangerColorBorder, ChangerColorLabel, ChangerColorShadow,*/ getColor, save, Save, ChangerColor}:any = useConfig();
+    const {/*ChangerColorBorder, ChangerColorLabel, ChangerColorShadow,*/ getColor, save, Save, ChangerColor, changerOpacity, opacity}:any = useConfig();
 
     useEffect(()=>{
         getColor();
@@ -53,11 +53,12 @@ function Config(){
                     <div className="Config-Ranger" >
                         <div>
                             <label>Opacidad</label>
-                            <label>100</label>
+                            <label>{opacity}</label>
                         </div>
                         <input id="Opacity" type="range" min="0" max="30" onChange={(e)=>{
                             let progress = Number(e.target.value) / Number(e.target.max) * 100;
                             e.target.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${progress}%, var(--Border_Color) ${progress}%, var(--Border_Color) 100%)`;
+                            changerOpacity(e);
                         }} />
                     </div>
                     <div className="Config-Ranger" >

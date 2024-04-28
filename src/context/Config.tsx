@@ -75,8 +75,15 @@ export function ConfigProvider({children}: any) {
         setSave(false);
     }
 
+    const [opacity, setOpacity] = useState(0);
+
+    function changerOpacity({target: {value}}: any){
+        document.documentElement.style.setProperty("--Blur_Px", value+"px");
+        setOpacity(value);
+    }
+
     return (
-        <ConfigContext.Provider value={{/*ChangerColorLabel, ChangerColorBorder, ChangerColorShadow,*/ getColor, save, Save,  ChangerColor}}>
+        <ConfigContext.Provider value={{/*ChangerColorLabel, ChangerColorBorder, ChangerColorShadow,*/ getColor, save, Save,  ChangerColor, changerOpacity, opacity}}>
             {children}
         </ConfigContext.Provider>
     );
