@@ -31,27 +31,6 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         });
         setMusic(data);
     }
-    
-    function handleKeyDown(){
-        /*
-        if(e.key === " " || e.key === "MediaPlayPause"){
-            ControlMusic();
-        }else if(e.key === "MediaTrackNext"){
-            NextMusic();
-        }else if(e.key === "MediaTrackPrevious"){
-            BackMusic();
-        }
-        */
-       
-    }
-
-    function changerKey(){
-       document.addEventListener("keydown", handleKeyDown);
-    }
-
-    function deleteChangerKey(){
-        document.removeEventListener("keydown", handleKeyDown);
-    }
 
     async function PlayMusic(i: number){
         try {
@@ -187,7 +166,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
 
 
     return(
-        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, listMusic, ChangerStateListMusic, durtationInput, durationInputMax, changeDuration, InputMusic, CloseAnimation, changerKey, deleteChangerKey}}>
+        <MusicContext.Provider value={{getMusic, Music, PlayMusic, ControlMusic, NextMusic, BackMusic, FilterMusic, Play, changeVolume, updateTime, duration, volume, listMusic, ChangerStateListMusic, durtationInput, durationInputMax, changeDuration, InputMusic, CloseAnimation}}>
             {children}
         </MusicContext.Provider>
     );

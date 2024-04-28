@@ -9,7 +9,7 @@
     display: flex;
     padding: 5px;
     width: 50%;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(var(--Blur_Px));
     border: 2px solid var(--Border_Color);
     border-radius: 10px;
     box-shadow: 0 0 20px var(--Shadow_Color);

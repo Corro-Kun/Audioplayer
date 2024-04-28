@@ -17,7 +17,7 @@ function BarBottonMain(){
                     <h2>V{version}</h2>
                 </div>
                 <div className="BarBottonMain-Bar-button" >
-                    <button onClick={()=> navigate("/home")} >Entrar</button>
+                    <button onClick={()=> navigate("/home")} >Escuchar</button>
                 </div>
                 <div className="BarBottonMain-Bar-Logo" >
                     <Made name="Corro-Kun"/>

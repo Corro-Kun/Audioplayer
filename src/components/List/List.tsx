@@ -7,18 +7,11 @@ import Config from "../Config/Config";
 import {ConfigProvider} from "../../context/Config";
 
 function List(){
-    const {getMusic, Music, PlayMusic, listMusic, InputMusic, CloseAnimation, changerKey, deleteChangerKey}:any = useMusic();
+    const {getMusic, Music, PlayMusic, listMusic, InputMusic, CloseAnimation}:any = useMusic();
     const {getVideo}:any = useVideo();
     useEffect(()=>{
         getMusic()
         getVideo()
-
-        changerKey()
-
-        return ()=>{
-            deleteChangerKey()
-        }
-
     },[]);
     return(
         <div className="List-Div-Render" >

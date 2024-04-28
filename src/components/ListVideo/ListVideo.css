@@ -9,7 +9,7 @@
 .List-Div-video{
     width: 90%;
     height: 95%;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(var(--Blur_Px));
     border-radius: 20px;
     border: 2px solid var(--Border_Color);
     box-shadow: 0 0 20px var(--Shadow_Color);

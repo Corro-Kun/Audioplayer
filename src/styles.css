@@ -7,6 +7,7 @@
     --Text_Color: #fff;
     --Border_Color: #000;
     --Shadow_Color: #000000;
+    --Blur_Px: 15px;
 }
 
 *{
