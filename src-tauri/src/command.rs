@@ -135,3 +135,22 @@ pub fn save_config_db(configs: Vec<Config>) {
         ).expect("error");
     }
 }
+
+#[tauri::command]
+pub fn get_color_text() -> String{
+    let conn = connect();
+
+    let mut stmt = conn.prepare("SELECT color FROM color WHERE name = '--Text_Color';").map_err(|err| format!("the error is {}", err.to_string())).expect("error");
+
+    let color = stmt.query_map([], |row|{
+        Ok(row.get(0)?)
+    }).expect("error");
+
+    let mut color_text = String::new();
+
+    for col in color {
+        color_text = col.expect("error");
+    }
+
+    color_text
+}
