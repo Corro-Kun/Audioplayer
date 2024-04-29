@@ -23,7 +23,7 @@ function BarBottonMain(){
                     <button style={{backgroundColor: color}} onClick={()=> navigate("/home")} >¡Escuchar!</button>
                 </div>
                 <div className="BarBottonMain-Bar-Logo" >
-                    <Made name="Corro-Kun"/>
+                    <Made color={color} name="Corro-Kun"/>
                 </div>
             </div>
         </div>
