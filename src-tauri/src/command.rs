@@ -3,7 +3,8 @@ use tauri::api::{path, dir};
 use tauri::Result as TauriResult;
 use rusqlite::{params, Result as SqliteResult};
 use crate::models::*;
-use crate::config::connect;
+use crate::config::*;
+use crate::check::*;
 
 #[tauri::command]
 pub fn get_path_music() -> Vec<DiskEntry>{
@@ -44,7 +45,9 @@ fn update_video(path: &str) -> SqliteResult<()> {
 
 #[tauri::command]
 pub fn get_video_db() -> String {
-    let conn = connect();
+    let mut conn = connect();
+
+    check_table_video(&mut conn);
 
     let mut stmt = conn.prepare("SELECT * FROM video;").map_err(|err| format!("the error is {}", err.to_string())).unwrap();
 
@@ -66,8 +69,10 @@ pub fn get_video_db() -> String {
 
 #[tauri::command]
 pub fn get_color_db() -> Vec<Color>{
-    let conn = connect();
+    let mut conn = connect();
 
+    check_table_color(&mut conn);
+    
     let mut stmt = conn.prepare("SELECT * FROM color;").map_err(|err| format!("the error is {}", err.to_string())).expect("error");
 
     let config = stmt.query_map([], |row|{
@@ -102,7 +107,9 @@ pub fn save_color_db(colors: Vec<Color>) {
 
 #[tauri::command]
 pub fn get_config_db() -> Vec<Config>{
-    let conn = connect();
+    let mut conn = connect();
+
+    check_table_config(&mut conn);
 
     let mut stmt = conn.prepare("SELECT * FROM config;").map_err(|err| format!("the error is {}", err.to_string())).expect("error");
 
@@ -138,7 +145,9 @@ pub fn save_config_db(configs: Vec<Config>) {
 
 #[tauri::command]
 pub fn get_color_text() -> String{
-    let conn = connect();
+    let mut conn = connect();
+
+    check_table_color(&mut conn);
 
     let mut stmt = conn.prepare("SELECT color FROM color WHERE name = '--Text_Color';").map_err(|err| format!("the error is {}", err.to_string())).expect("error");
 

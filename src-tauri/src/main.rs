@@ -8,6 +8,7 @@ fn greet(name: &str) -> String{
 mod command;
 mod models;
 mod config;
+mod check;
 
 use command::*;
 
