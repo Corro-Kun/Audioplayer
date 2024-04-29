@@ -34,6 +34,9 @@ export function VideoProvider({children}: any) {
             return file.name?.toLowerCase().includes("fondos");
         })
         data = data[0].children;
+        data.forEach((e) =>{
+            e.name = e.name.replace(".mp4", "");
+        });
         setVideo(data);
     }
 
