@@ -5,12 +5,12 @@
 
 :root{
     --Text_Color: #fff;
-    --Border_Color: #000;
-    --Shadow_Color: #000000;
-    --Blur_Px: 15px;
-    --Shadow_Px: 20px;
-    --Border_Radio_Px_Primary: 20px;
-    --Background_Color: #198eee;
+    --Border_Color: #f48623;
+    --Shadow_Color: #ee7c11;
+    --Blur_Px: 0px;
+    --Shadow_Px: 15px;
+    --Border_Radio_Px_Primary: 15px;
+    --Background_Color: #f29945;
 }
 
 *{
