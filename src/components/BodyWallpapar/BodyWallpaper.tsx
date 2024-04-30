@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import "./BodyWallpaper.css";
-import BackGrund from "../../assets/audifonos.mp4";
+import BackGrund from "../../assets/bonny.mp4";
 import { ChangerVideoMain } from "../../lib/bodyWalpaper";
 
 function BodyWallpaper({children}: {children: React.ReactNode}) {
