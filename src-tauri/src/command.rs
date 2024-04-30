@@ -163,3 +163,24 @@ pub fn get_color_text() -> String{
 
     color_text
 }
+
+#[tauri::command]
+pub fn get_color_background() -> String{
+    let mut conn = connect();
+
+    check_table_color(&mut conn);
+
+    let mut stmt = conn.prepare("SELECT color FROM color WHERE name = '--Background_Color';").map_err(|err| format!("the error is {}", err.to_string())).expect("error");
+
+    let color = stmt.query_map([], |row|{
+        Ok(row.get(0)?)
+    }).expect("error");
+
+    let mut color_background = String::new();
+
+    for col in color {
+        color_background = col.expect("error");
+    }
+
+    color_background
+}

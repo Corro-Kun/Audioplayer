@@ -25,7 +25,8 @@ impl Color{
         vec![
             Color::new(1, "--Text_Color".to_string(), "#fff".to_string()),
             Color::new(2, "--Border_Color".to_string(), "#000".to_string()),
-            Color::new(3, "--Shadow_Color".to_string(), "#000000".to_string())
+            Color::new(3, "--Shadow_Color".to_string(), "#000000".to_string()),
+            Color::new(4, "--Background_Color".to_string(), "#198eee".to_string()),
         ]
     }
 }

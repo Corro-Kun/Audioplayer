@@ -39,9 +39,9 @@ export function ConfigProvider({children}: any) {
         const Density = document.getElementById("Density") as HTMLInputElement;
         const Smooth = document.getElementById("smooth") as HTMLInputElement;
 
-        Opacity.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${Number(Opacity.value) / Number(Opacity.max) * 100}%, var(--Border_Color) ${Number(Opacity.value) / Number(Opacity.max) * 100}%, var(--Border_Color) 100%)`;
-        Density.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${Number(Density.value) / Number(Density.max) * 100}%, var(--Border_Color) ${Number(Density.value) / Number(Density.max) * 100}%, var(--Border_Color) 100%)`;
-        Smooth.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${Number(Smooth.value) / Number(Smooth.max) * 100}%, var(--Border_Color) ${Number(Smooth.value) / Number(Smooth.max) * 100}%, var(--Border_Color) 100%)`;
+        Opacity.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${Number(Opacity.value) / Number(Opacity.max) * 100}%, var(--Background_Color) ${Number(Opacity.value) / Number(Opacity.max) * 100}%, var(--Background_Color) 100%)`;
+        Density.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${Number(Density.value) / Number(Density.max) * 100}%, var(--Background_Color) ${Number(Density.value) / Number(Density.max) * 100}%, var(--Background_Color) 100%)`;
+        Smooth.style.background = `linear-gradient(to right, var(--Text_Color) 0%, var(--Text_Color) ${Number(Smooth.value) / Number(Smooth.max) * 100}%, var(--Background_Color) ${Number(Smooth.value) / Number(Smooth.max) * 100}%, var(--Background_Color) 100%)`;
  
     }
 

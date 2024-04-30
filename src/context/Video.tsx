@@ -23,6 +23,8 @@ export function VideoProvider({children}: any) {
     // ref para alterar el color de las sombras
     const InputColorShadow = useRef(null);
 
+    const InputColorBackground = useRef(null);
+
     const [Video, setVideo] = useState([{
         name: "",
         path: "",
@@ -74,7 +76,7 @@ export function VideoProvider({children}: any) {
     }
 
     return(
-        <VideoContext.Provider value={{getVideo, Video, changerVideo, ChangerStateListFondos, listFondos,configState, ChangerConfigState, InputVideo, InputColorLabel, InputColorBorder, InputColorShadow, CloseAnimationV}}>
+        <VideoContext.Provider value={{getVideo, Video, changerVideo, ChangerStateListFondos, listFondos,configState, ChangerConfigState, InputVideo, InputColorLabel, InputColorBorder, InputColorShadow, CloseAnimationV, InputColorBackground}}>
             {children}
         </VideoContext.Provider>
     );

@@ -7,7 +7,7 @@ import {useEffect} from "react";
 
 function Config(){
     const {ChangerStateListMusic, InputMusic, CloseAnimation} = useMusic();
-    const {ChangerStateListFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, InputColorBorder, InputColorShadow, CloseAnimationV}:any = useVideo();
+    const {ChangerStateListFondos, configState, ChangerConfigState, InputVideo, InputColorLabel, InputColorBorder, InputColorShadow, CloseAnimationV, InputColorBackground}:any = useVideo();
     const {/*ChangerColorBorder, ChangerColorLabel, ChangerColorShadow,*/ getColor, save, Save, ChangerColor, changerOpacity, opacity, changerShadow, shadow,  smoothPrimary, changerSmoothPrimary, getConfig}:any = useConfig();
 
     useEffect(()=>{
@@ -44,6 +44,11 @@ function Config(){
                         <label>Color de sombras</label>  {/*ChangerColorShadow*/}
                         <input name="3" onChange={(e)=> ChangerColor(e)} ref={InputColorShadow} style={{display:"none"}} type="color" />
                         <button onClick={()=> InputColorShadow.current.click()} style={{backgroundColor:"var(--Shadow_Color)"}} className="Checkbox-div-Color" ></button>
+                    </div>
+                    <div className="Checkbox-div" >
+                        <label>Color del cuerpo</label>  {/*ChangerColorShadow*/}
+                        <input name="4" onChange={(e)=> ChangerColor(e)} ref={InputColorBackground} style={{display:"none"}} type="color" />
+                        <button onClick={()=> InputColorBackground.current.click()} style={{backgroundColor:"var(--Background_Color)"}} className="Checkbox-div-Color" ></button>
                     </div>
                     <div className="Config-Ranger" >
                         <div>

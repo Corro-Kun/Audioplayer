@@ -125,7 +125,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
 
         const bar = document.getElementById("Control-Progress") as HTMLInputElement;
         
-        bar.style.background = `linear-gradient(to right, var(--Text_Color) 0% ,var(--Text_Color) ${Number(bar.value) / Number(bar.max) * 100}%, var(--Border_Color) ${Number(bar.value) / Number(bar.max) * 100}% ,var(--Border_Color) 0%)`;
+        bar.style.background = `linear-gradient(to right, var(--Text_Color) 0% ,var(--Text_Color) ${Number(bar.value) / Number(bar.max) * 100}%, var(--Background_Color) ${Number(bar.value) / Number(bar.max) * 100}% ,var(--Background_Color) 0%)`;
     };
 
     function changeVolume({target:{value, style}}: {target: {value: number, style: HTMLInputElement["style"]}}){
@@ -133,7 +133,7 @@ export const MusicProvider = ({children} : {children: React.ReactNode})=>{
         setVolume(value);
         audio.volume = volume;
 
-        style.background = `linear-gradient(to right, var(--Text_Color) 0% ,var(--Text_Color) ${value * 100}%, var(--Border_Color) ${value * 100}% ,var(--Border_Color) 0%)`;
+        style.background = `linear-gradient(to right, var(--Text_Color) 0% ,var(--Text_Color) ${value * 100}%, var(--Background_Color) ${value * 100}% ,var(--Background_Color) 0%)`;
     }
 
     function changeDuration({target:{value}}: {target: {value: number}}){
