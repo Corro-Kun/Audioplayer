@@ -2,7 +2,7 @@ use rusqlite::{Connection, params};
 use crate::models::*;
 
 pub fn connect() -> Connection{
-    let conn = Connection::open("database.db").unwrap();
+    let conn = Connection::open("data_user.db").unwrap();
 
     conn
 }

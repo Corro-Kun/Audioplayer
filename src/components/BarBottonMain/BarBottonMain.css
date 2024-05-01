@@ -33,7 +33,7 @@
     padding: 8px 12px 8px 12px;
     border: none;
     background-color: var(--Background_Color);
-    color: #fff;
+    color: var(--Text_Color);
     border-radius: 10px;
     animation: BarBottonMain-Render-Animation 2s ease-in-out infinite alternate;
     transition: .5s;
