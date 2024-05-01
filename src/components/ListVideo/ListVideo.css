@@ -43,7 +43,8 @@
 .List-Div-Video-Render{
     height: 90%;
     width: 100%;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .List-Div-Video-Render::-webkit-scrollbar{
@@ -56,4 +57,11 @@
 }
 .List-Div-Video-Render::-webkit-scrollbar-track{
     background: transparent;
+}
+
+.List-Empty{
+    display: flex;
+    margin: 20px 3%;
+    width: 95%;
+    text-align: center;
 }

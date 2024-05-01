@@ -25,11 +25,16 @@ function List(){
                         </div>
                         <div className="List-Music">
                             {
+                                Music.length > 0 ?
                                 Music.map((item: any, index: number)=>(
                                     <div id={item.statue ? "select" : undefined} className="List-Music-Item" key={index} onClick={()=> PlayMusic(index)}>
                                         <p>{item.name}</p>
                                     </div>
                                 ))
+                                :
+                                <div className="List-Music-Message" >
+                                    <p>No se encontró la música, pon tu música en formato .mp3 en tu carpeta música por defecto</p>
+                                </div>
                             }
                         <audio style={{display: "none"}} id="audio" controls>
                             <source id="source" src="" type="audio/mpeg" />

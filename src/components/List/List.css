@@ -137,4 +137,11 @@
         width: 150%;
     }
 }
+
+.List-Music-Message{
+    display: flex;
+    margin: 20px 10%;
+    width: 80%;
+    text-align: center;
+}
     

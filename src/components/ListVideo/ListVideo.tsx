@@ -12,6 +12,11 @@ function ListVideo(){
                 </div>
                 <div className="List-Div-Video-Render" >
                 {
+                    Video.length === 0 ? 
+                        <div className="List-Empty" >
+                            <p>No se encontraron los fondos, crea una carpeta llama "fondos" en tu carpeta video predeterminada y guarda tus fondos en formato .mp4</p>
+                        </div> 
+                    :
                     Video.map((item: any, index: number)=>(
                         <div className="List-Music-Item" key={index} onClick={()=>changerVideo(index)} >
                             <p><span><FaPhotoVideo /></span> {item.name}</p>
