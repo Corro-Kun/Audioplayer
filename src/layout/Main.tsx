@@ -1,7 +1,6 @@
 import { checkUpdate, installUpdate, onUpdaterEvent } from "@tauri-apps/api/updater";
 import BarBottonMain from "../components/BarBottonMain/BarBottonMain";
 import BarTopMain from "../components/BarTopMain/BarTopMain";
-import BodyWallpaper from "../components/BodyWallpapar/BodyWallpaper";
 import {useEffect} from "react";
 import { toast } from "sonner";
 import { relaunch } from "@tauri-apps/api/process";
@@ -29,10 +28,10 @@ function Main(){
     },[]);
 
     return(
-        <BodyWallpaper>
+        <>
             <BarTopMain />
             <BarBottonMain />
-        </BodyWallpaper>
+        </>
     );
 }
 
