@@ -8,6 +8,8 @@ Anime Theme Audio Player
 
 **Server:** Tauri, Sqlite
 
+<img src="https://skillicons.dev/icons?i=tauri,react,ts,rust,sqlite" alt="stack">
+
 ## Run Locally
 
 Clone the project
@@ -50,41 +52,20 @@ Start the app
 <br>
 <img src="public/promocion4.png" alt="App Screenshot">
 
+## Color Reference
 
-<p align="left"><strong><samp>「</samp></strong></p>
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Color Text | ![#fff](https://via.placeholder.com/10/fff?text=+) #fff |
+| Border Color | ![#f48623](https://via.placeholder.com/10/f48623?text=+) #f48623 |
+| Shadow Color | ![#ee7c11](https://via.placeholder.com/10/ee7c11?text=+) #ee7c11 |
+| Background Color | ![#f29945](https://via.placeholder.com/10/f29945?text=+) #f29945 |
 
-<p align="center">
-    <b>
-        AudioPlay
-        <br>
-        Anime Theme Audio Player
-        <br>
-        <br>
-        <img src="https://skillicons.dev/icons?i=tauri,react,ts,rust,sqlite" alt="stack">
-        <br>
-        <br>
-        images of the application:
-        <br>
-        <br>
-        <img src="public/present.png" alt="imagen">
-        <br>
-        <br>
-        <img src="public/promicion1.png" alt="imagen">
-        <br>
-        <br>
-        <img src="public/promicion2.png" alt="imagen">
-        <br>
-        <br>
-        <img src="public/promicion3.png" alt="imagen">
-        <br>
-        <br>
-        <img src="public/promocion4.png" alt="imagen">
-        <br>
-        <br>
-        ~ Corro-Kun ~
-    </b>
-</p>
+## Contributing
 
-<p align="right"><strong><samp>」</samp></strong></p>
+Contributions are always welcome!
 
-<br>
+See [CONTRIBUTING](CONTRIBUTING.md) for ways to get started.
+
+# Thank you for reading
+<p align="center">~ Corro-Kun ~</p>
